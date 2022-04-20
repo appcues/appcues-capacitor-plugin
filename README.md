@@ -1,6 +1,6 @@
 # appcues-capacitor-plugin
 
-Appcues Capcitor plugin to bridge the native Appcues SDKs in an Ionic application.
+Capcitor plugin to bridge the native Appcues SDKs in an Ionic application.
 
 ## Install
 
