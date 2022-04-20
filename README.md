@@ -1,2 +1,2 @@
 # appcues-ionic-sdk
-The Ionic SDK
+The Appcues Ionic SDK
