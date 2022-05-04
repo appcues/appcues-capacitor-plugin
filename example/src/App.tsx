@@ -39,7 +39,7 @@ import { Appcues } from 'appcues-capacitor';
 async function usePageViews() {
   const location = useLocation();
 
-  await Appcues.initialize({accountID: '103523', applicationID: '6f6a1ab2-bbf2-43ab-9a91-6325d12e6649', 'logging': true})
+  await Appcues.initialize({accountID: 'ACCOUNT_ID', applicationID: 'APP_ID', 'logging': true})
   await Appcues.identify({userID: 'ionic-user-00000'})
 
 

@@ -22,7 +22,7 @@ class AppcuesPlugin : Plugin() {
         val applicationID = call.getString("applicationID")
         if (accountID != null && applicationID != null) {
             mainScope.launch {
-                implementation = Appcues.Builder(context, accountID, applicationID).build()
+                implementation = Appcues(context, accountID, applicationID)
                 call.resolve()
             }
         }
