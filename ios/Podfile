@@ -1,4 +1,3 @@
-source 'ssh://git@github.com/appcues/cocoapods-specs'
 platform :ios, '12.0'
 
 def capacitor_pods
