@@ -7,5 +7,6 @@ CAP_PLUGIN(AppcuesPlugin, "Appcues",
            CAP_PLUGIN_METHOD(initialize, CAPPluginReturnPromise);
            CAP_PLUGIN_METHOD(identify, CAPPluginReturnPromise);
            CAP_PLUGIN_METHOD(screen, CAPPluginReturnPromise);
+           CAP_PLUGIN_METHOD(track, CAPPluginReturnPromise);
            CAP_PLUGIN_METHOD(show, CAPPluginReturnPromise);
 )

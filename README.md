@@ -16,6 +16,7 @@ npx cap sync
 * [`initialize(...)`](#initialize)
 * [`identify(...)`](#identify)
 * [`screen(...)`](#screen)
+* [`track(...)`](#track)
 * [`show(...)`](#show)
 * [Interfaces](#interfaces)
 
@@ -63,6 +64,19 @@ screen(options: ScreenOptions) => Promise<void>
 --------------------
 
 
+### track(...)
+
+```typescript
+track(options: TrackOptions) => Promise<void>
+```
+
+| Param         | Type                                                  |
+| ------------- | ----------------------------------------------------- |
+| **`options`** | <code><a href="#trackoptions">TrackOptions</a></code> |
+
+--------------------
+
+
 ### show(...)
 
 ```typescript
@@ -101,6 +115,14 @@ show(options: ShowOptions) => Promise<void>
 | Prop             | Type                |
 | ---------------- | ------------------- |
 | **`title`**      | <code>string</code> |
+| **`properties`** | <code>object</code> |
+
+
+#### TrackOptions
+
+| Prop             | Type                |
+| ---------------- | ------------------- |
+| **`name`**       | <code>string</code> |
 | **`properties`** | <code>object</code> |
 
 

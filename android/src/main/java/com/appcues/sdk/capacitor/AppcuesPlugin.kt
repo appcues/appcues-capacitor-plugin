@@ -47,6 +47,16 @@ class AppcuesPlugin : Plugin() {
     }
 
     @PluginMethod
+    fun track(call: PluginCall) {
+        val name = call.getString("name")
+        if (name != null) {
+            implementation.track(name)
+        }
+        call.resolve()
+    }
+
+
+    @PluginMethod
     fun show(call: PluginCall) {
         val experienceID = call.getString("experienceID")
         if (experienceID != null) {

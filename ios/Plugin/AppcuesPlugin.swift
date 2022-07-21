@@ -47,6 +47,17 @@ public class AppcuesPlugin: CAPPlugin {
         call.resolve()
     }
 
+    @objc func track(_ call: CAPPluginCall) {
+        guard let implementation = implementation else { return call.reject("Must call initialize") }
+        guard let name = call.getString("name") else { return call.reject("Missing event name") }
+
+//        let properties = call.getObject("properties")
+
+        implementation.track(name: name, properties: nil)
+
+        call.resolve()
+    }
+
     @objc func show(_ call: CAPPluginCall) {
         guard let implementation = implementation else { return call.reject("Must call initialize") }
         guard let experienceID = call.getString("experienceID") else { return call.reject("Missing experience ID") }
