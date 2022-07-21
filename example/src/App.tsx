@@ -1,4 +1,4 @@
-import { useEffect} from 'react';
+import { useEffect, useState } from 'react';
 import { Redirect, Route, useLocation } from 'react-router-dom';
 import {
   IonApp,
@@ -36,20 +36,13 @@ import './theme/variables.css';
 
 import { Appcues } from 'appcues-capacitor';
 
-async function usePageViews() {
+function Tabs() {
   const location = useLocation();
-
-  await Appcues.initialize({accountID: 'ACCOUNT_ID', applicationID: 'APP_ID', 'logging': true})
-  await Appcues.identify({userID: 'ionic-user-00000'})
-
 
   useEffect(() => {
     Appcues.screen({title: location.pathname.substring(1)})
   }, [location]);
-}
 
-function Tabs() {
-  usePageViews();
   return (
     <IonTabs>
       <IonRouterOutlet>
@@ -84,12 +77,27 @@ function Tabs() {
   )
 }
 
-const App: React.FC = () => (
+export default function App() {
+  // Ensures that first _real_ render of the app doesn't occur until
+  // SDK init complete - to avoid screen view analytics before SDK is ready
+  const [initComplete, setInitComplete] = useState(false);
+
+  useEffect(() => {
+    const initAppcues = async () => {
+      await Appcues.initialize({accountID: 'APPCUES_ACCOUNT_ID', applicationID: 'APPCUES_APPLICATION_ID', 'logging': true});
+      await Appcues.identify({userID: 'ionic-user-00000'});
+      setInitComplete(true);
+    }
+    
+    initAppcues();
+
+  }, []);
+
+  return (
   <IonApp>
     <IonReactRouter>
-      <Tabs />
+      {initComplete && <Tabs />}
     </IonReactRouter>
   </IonApp>
-);
-
-export default App;
+  );
+}

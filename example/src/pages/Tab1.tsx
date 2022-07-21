@@ -11,15 +11,14 @@ const Tab1: React.FC = () => {
           <IonTitle>Appcues Ionic</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent>
+      <IonContent className="ion-padding">
         <IonHeader collapse="condense">
           <IonToolbar>
             <IonTitle size="large">Appcues Ionic</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <div className="container">
-          <IonButton onClick={() => Appcues.show({experienceID: "83adabe5-b650-4734-8e95-0870dc49fd35"})} >Show Experience</IonButton>
-        </div>
+        <IonButton expand="block" onClick={() => Appcues.track({name: "event1"})} >Trigger Event 1</IonButton>
+        <IonButton expand="block" onClick={() => Appcues.track({name: "event2"})} >Trigger Event 2</IonButton>
       </IonContent>
     </IonPage>
   );
