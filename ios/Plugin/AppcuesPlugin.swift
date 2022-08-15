@@ -44,7 +44,7 @@ public class AppcuesPlugin: CAPPlugin {
 
         implementation.screen(title: title, properties: nil)
 
-        call.resolve()
+        call.resolve() 
     }
 
     @objc func track(_ call: CAPPluginCall) {
@@ -66,6 +66,12 @@ public class AppcuesPlugin: CAPPlugin {
 
         implementation.show(experienceID: experienceID)
 
+        call.resolve()
+    }
+    
+    @objc func debug(_ call: CAPPluginCall) {
+        implementation?.debug()
+        
         call.resolve()
     }
 }

@@ -1,6 +1,6 @@
 {
-	"appId": "io.ionic.starter",
-	"appName": "ionic-test-app",
+	"appId": "com.appcues.samples.ionic",
+	"appName": "appcues-ionic-app",
 	"webDir": "build",
 	"bundledWebRuntime": false
 }

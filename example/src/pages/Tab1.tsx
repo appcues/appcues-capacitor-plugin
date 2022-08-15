@@ -1,5 +1,4 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
 import './Tab1.css';
 import { Appcues } from 'appcues-capacitor';
 
@@ -19,6 +18,7 @@ const Tab1: React.FC = () => {
         </IonHeader>
         <IonButton expand="block" onClick={() => Appcues.track({name: "event1"})} >Trigger Event 1</IonButton>
         <IonButton expand="block" onClick={() => Appcues.track({name: "event2"})} >Trigger Event 2</IonButton>
+        <IonButton expand="block" onClick={() => Appcues.debug()} >Open debug</IonButton>
       </IonContent>
     </IonPage>
   );

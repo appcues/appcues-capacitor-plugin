@@ -24,4 +24,8 @@ export class AppcuesWeb extends WebPlugin implements AppcuesPlugin {
   async show(options: ShowOptions): Promise<void> {
     console.log(`Appcues.show(experienceID: ${options.experienceID})`);
   }    
+
+  async debug(): Promise<void> {
+    console.log(`Appcues.debug()`);
+  }
 }
