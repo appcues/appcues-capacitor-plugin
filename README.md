@@ -18,6 +18,7 @@ npx cap sync
 * [`screen(...)`](#screen)
 * [`track(...)`](#track)
 * [`show(...)`](#show)
+* [`debug()`](#debug)
 * [Interfaces](#interfaces)
 
 </docgen-index>
@@ -86,6 +87,15 @@ show(options: ShowOptions) => Promise<void>
 | Param         | Type                                                |
 | ------------- | --------------------------------------------------- |
 | **`options`** | <code><a href="#showoptions">ShowOptions</a></code> |
+
+--------------------
+
+
+### debug()
+
+```typescript
+debug() => Promise<void>
+```
 
 --------------------
 

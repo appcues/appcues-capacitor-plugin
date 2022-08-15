@@ -10,7 +10,9 @@ import {
   IonTabs,
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, square, triangle } from 'ionicons/icons';
+import eventsIcon from './assets/ic_events.svg' 
+import profileIcon from './assets/ic_profile.svg'
+import groupIcon from './assets/ic_group.svg'
 import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
@@ -60,17 +62,17 @@ function Tabs() {
         </Route>
       </IonRouterOutlet>
       <IonTabBar slot="bottom">
-        <IonTabButton tab="tab1" href="/tab1">
-          <IonIcon icon={triangle} />
-          <IonLabel>Tab 1</IonLabel>
+        <IonTabButton tab="Events" href="/tab1">
+          <IonIcon icon={eventsIcon} />
+          <IonLabel>Events</IonLabel>
         </IonTabButton>
-        <IonTabButton tab="tab2" href="/tab2">
-          <IonIcon icon={ellipse} />
-          <IonLabel>Tab 2</IonLabel>
+        <IonTabButton tab="Profile" href="/tab2">
+          <IonIcon icon={profileIcon} />
+          <IonLabel>Profile</IonLabel>
         </IonTabButton>
-        <IonTabButton tab="tab3" href="/tab3">
-          <IonIcon icon={square} />
-          <IonLabel>Tab 3</IonLabel>
+        <IonTabButton tab="Group" href="/tab3">
+          <IonIcon icon={groupIcon} />
+          <IonLabel>Group</IonLabel>
         </IonTabButton>
       </IonTabBar>
     </IonTabs>

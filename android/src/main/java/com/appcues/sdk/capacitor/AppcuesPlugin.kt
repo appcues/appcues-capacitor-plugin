@@ -1,10 +1,10 @@
 package com.appcues.sdk.capacitor
 
 import com.appcues.Appcues
-import com.getcapacitor.annotation.CapacitorPlugin
-import com.getcapacitor.PluginMethod
-import com.getcapacitor.PluginCall
 import com.getcapacitor.Plugin
+import com.getcapacitor.PluginCall
+import com.getcapacitor.PluginMethod
+import com.getcapacitor.annotation.CapacitorPlugin
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -67,5 +67,10 @@ class AppcuesPlugin : Plugin() {
         call.resolve()
     }
 
-
+    @PluginMethod
+    fun debug(call: PluginCall) {
+        implementation.debug(activity)
+        
+        call.resolve()
+    }
 }

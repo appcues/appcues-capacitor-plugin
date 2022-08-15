@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
-import { Appcues } from 'appcues-capacitor';
 
 // Appcues.initialize({accountID: '103523', applicationID: '6f6a1ab2-bbf2-43ab-9a91-6325d12e6649', 'logging': true})
 // Appcues.identify({userID: 'ionic-user-00000'})

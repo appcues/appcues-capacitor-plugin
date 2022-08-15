@@ -3,7 +3,8 @@ export interface AppcuesPlugin {
   identify(options: IdentifyOptions): Promise<void>;
   screen(options: ScreenOptions): Promise<void>;
   track(options: TrackOptions): Promise<void>;
-  show(options: ShowOptions): Promise<void>;  
+  show(options: ShowOptions): Promise<void>; 
+  debug(): Promise<void>; 
 }
 
 export interface AppcuesConfig {
