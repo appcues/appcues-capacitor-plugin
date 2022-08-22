@@ -44,11 +44,9 @@ public class AppcuesPlugin: CAPPlugin {
     }
     
     @objc func getVersion(_ call: CAPPluginCall) {
-        if let version = implementation?.version() {
-            call.resolve(["version": version])
-        } else {
-            call.reject("Appcues not initialized.")
-        }
+        let version = Appcues.version() as String
+    
+        call.resolve(["version": version])
     }
 
     @objc func identify(_ call: CAPPluginCall) {
