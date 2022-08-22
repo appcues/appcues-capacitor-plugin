@@ -105,12 +105,6 @@ class AppcuesPlugin : Plugin() {
     }
 
     @PluginMethod
-    fun trackScreens(call: PluginCall) {
-        implementation.trackScreens()
-        call.resolve()
-    }
-
-    @PluginMethod
     fun stop(call: PluginCall) {
         implementation.stop()
         call.resolve()

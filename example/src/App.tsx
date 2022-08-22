@@ -34,7 +34,7 @@ export default function App() {
   useEffect(() => {
     const initAppcues = async () => {
       let appcuesConfig =  new AppcuesConfig();
-      appcuesConfig.loggingLevel = true;
+      appcuesConfig.logging = true;
 
       await Appcues.initialize({accountId: 'APPCUES_ACCOUNT_ID', applicationId: 'APPCUES_APPLICATION_ID', config: appcuesConfig});
 
