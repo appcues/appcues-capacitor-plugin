@@ -33,8 +33,8 @@ const HomeProfileTab: React.FC = () => {
     <IonPage>
           <IonHeader>
           <IonToolbar>
-            <IonButtons slot="secondary">
-              <IonButton onClick={onSignOut} color=''>SIGN OUT</IonButton>
+            <IonButtons slot="end">
+              <IonButton onClick={onSignOut} >SIGN OUT</IonButton>
             </IonButtons>
               <IonTitle>Update Profile</IonTitle>
             </IonToolbar>

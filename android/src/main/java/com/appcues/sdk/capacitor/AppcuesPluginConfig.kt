@@ -7,7 +7,7 @@ import com.getcapacitor.PluginCall
 class AppcuesPluginConfig(val call: PluginCall) {
     private val jsObject = call.getObject("config")
 
-    private val loggingLevel: LoggingLevel = jsObject.getInteger("loggingLevel").toLoggingLevel()
+    private val loggingLevel: LoggingLevel = jsObject.getBool("loggingLevel").toLoggingLevel()
 
     private val apiBasePath: String? = jsObject.getString("apiBasePath")
 
@@ -25,11 +25,11 @@ class AppcuesPluginConfig(val call: PluginCall) {
         activityStorageMaxAge?.let { appcuesConfig.activityStorageMaxAge = it }
     }
 
-    private fun Int?.toLoggingLevel(): LoggingLevel {
+    private fun Boolean?.toLoggingLevel(): LoggingLevel {
         return when (this) {
-            1 -> LoggingLevel.INFO
-            2 -> LoggingLevel.DEBUG
-            else -> LoggingLevel.NONE
+            true -> LoggingLevel.DEBUG
+            false -> LoggingLevel.NONE
+            null -> LoggingLevel.NONE
         }
     }
 }
