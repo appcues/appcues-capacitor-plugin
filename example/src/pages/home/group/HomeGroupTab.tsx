@@ -6,7 +6,6 @@ const HomeGroupTab: React.FC = () => {
   let group = ""
 
   const onSaveGroup = () => {
-    console.log("onSaveGroup: ", group)
     Appcues.group({ groupId: group })
   }
 

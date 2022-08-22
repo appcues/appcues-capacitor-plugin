@@ -4,9 +4,6 @@ import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 
-// Appcues.initialize({accountID: '103523', applicationID: '6f6a1ab2-bbf2-43ab-9a91-6325d12e6649', 'logging': true})
-// Appcues.identify({userID: 'ionic-user-00000'})
-
 ReactDOM.render(
   <React.StrictMode>
     <App />
