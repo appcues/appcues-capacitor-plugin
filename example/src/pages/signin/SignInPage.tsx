@@ -41,8 +41,8 @@ const SignInPage: React.FC = () => {
     <IonPage>
       <IonHeader>
       <IonToolbar>
-        <IonButtons slot="secondary">
-           <IonButton onClick={onSkip} color=''>SKIP</IonButton>
+        <IonButtons slot='end'>
+           <IonButton onClick={onSkip}>SKIP</IonButton>
         </IonButtons>
           <IonTitle>Sign in</IonTitle>
           

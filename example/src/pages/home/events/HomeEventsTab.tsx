@@ -11,8 +11,8 @@ const HomeEventsTab: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-        <IonButtons slot="secondary">
-           <IonButton onClick={openDebugger} color=''>DEBUG</IonButton>
+        <IonButtons slot="end">
+           <IonButton onClick={openDebugger}>DEBUG</IonButton>
         </IonButtons>
           <IonTitle>Trigger Events</IonTitle>
         </IonToolbar>

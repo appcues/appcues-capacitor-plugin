@@ -22,15 +22,11 @@ export interface InitializeOptions {
 }
 
 export class AppcuesConfig {
-  loggingLevel: AppcuesLoggingLevel = AppcuesLoggingLevel.NONE;
+  loggingLevel: boolean = false;
   apiBasePath: string | null = null;
   sessionTimeout: number | null = null;
   activityStorageMaxSize: number | null = null;
   activityStorageMaxAge: number | null = null;
-}
-
-export enum AppcuesLoggingLevel {
-  NONE, INFO, DEBUG
 }
 
 export interface VersionResponse {

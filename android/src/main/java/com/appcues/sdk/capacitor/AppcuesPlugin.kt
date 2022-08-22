@@ -1,6 +1,5 @@
 package com.appcues.sdk.capacitor
 
-import android.util.Log
 import com.appcues.Appcues
 import com.getcapacitor.JSObject
 import com.getcapacitor.Plugin

@@ -22,7 +22,7 @@ import '@ionic/react/css/text-transformation.css';
 /* Theme variables */
 import './theme/variables.css';
 
-import { Appcues, AppcuesConfig, AppcuesLoggingLevel } from 'appcues-capacitor';
+import { Appcues, AppcuesConfig } from 'appcues-capacitor';
 import SignInPage from './pages/signin/SignInPage';
 import HomePage from './pages/home/HomePage';
 
@@ -34,7 +34,7 @@ export default function App() {
   useEffect(() => {
     const initAppcues = async () => {
       let appcuesConfig =  new AppcuesConfig();
-      appcuesConfig.loggingLevel = AppcuesLoggingLevel.DEBUG;
+      appcuesConfig.loggingLevel = true;
 
       await Appcues.initialize({accountId: 'APPCUES_ACCOUNT_ID', applicationId: 'APPCUES_APPLICATION_ID', config: appcuesConfig});
 
