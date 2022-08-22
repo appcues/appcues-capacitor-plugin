@@ -22,7 +22,6 @@ npx cap sync
 * [`track(...)`](#track)
 * [`screen(...)`](#screen)
 * [`show(...)`](#show)
-* [`trackScreens()`](#trackscreens)
 * [`stop()`](#stop)
 * [`debug()`](#debug)
 * [Interfaces](#interfaces)
@@ -139,15 +138,6 @@ show(options: ShowOptions) => Promise<void>
 | Param         | Type                                                |
 | ------------- | --------------------------------------------------- |
 | **`options`** | <code><a href="#showoptions">ShowOptions</a></code> |
-
---------------------
-
-
-### trackScreens()
-
-```typescript
-trackScreens() => Promise<void>
-```
 
 --------------------
 
