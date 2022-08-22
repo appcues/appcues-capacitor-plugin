@@ -1,33 +1,66 @@
 export interface AppcuesPlugin {
-  initialize(options: AppcuesConfig): Promise<void>;
-  identify(options: IdentifyOptions): Promise<void>;
-  screen(options: ScreenOptions): Promise<void>;
-  track(options: TrackOptions): Promise<void>;
-  show(options: ShowOptions): Promise<void>; 
-  debug(): Promise<void>; 
+  initialize(options: InitializeOptions): Promise<void>; // ios
+
+  getVersion(): Promise<VersionResponse>; // ios
+  identify(options: IdentifyOptions): Promise<void>; // ios
+  group(options: GroupOptions): Promise<void>; // ios
+  anonymous(options: AnonymousOptions): Promise<void>; // ios
+  reset(): Promise<void>; // ios
+  track(options: TrackOptions): Promise<void>; // ios
+  screen(options: ScreenOptions): Promise<void>; // ios
+  show(options: ShowOptions): Promise<void>; // ios
+  trackScreens(): Promise<void>; // ios
+  stop(): Promise<void>; // ios
+  debug(): Promise<void>;
+  
 }
 
-export interface AppcuesConfig {
-  accountID: string;
-  applicationID: string;
-  logging?: boolean;
+export interface InitializeOptions {
+  accountId: string;
+  applicationId: string;
+  config: AppcuesConfig;
+}
+
+export class AppcuesConfig {
+  loggingLevel: AppcuesLoggingLevel = AppcuesLoggingLevel.NONE;
+  apiBasePath: string | null = null;
+  sessionTimeout: number | null = null;
+  activityStorageMaxSize: number | null = null;
+  activityStorageMaxAge: number | null = null;
+}
+
+export enum AppcuesLoggingLevel {
+  NONE, INFO, DEBUG
+}
+
+export interface VersionResponse {
+  version: string;
 }
 
 export interface IdentifyOptions {
-  userID: string;
-  properties?: object
+  userId: string;
+  properties?: JSON
 }
 
-export interface ScreenOptions {
-  title: string;
-  properties?: object
+export interface GroupOptions {
+  groupId: string;
+  properties?: JSON
+}
+
+export interface AnonymousOptions {
+  properties?: JSON
 }
 
 export interface TrackOptions {
   name: string;
-  properties?: object
+  properties?: JSON
+}
+
+export interface ScreenOptions {
+  title: string;
+  properties?: JSON
 }
 
 export interface ShowOptions {
-  experienceID: string;
+  experienceId: string;
 }

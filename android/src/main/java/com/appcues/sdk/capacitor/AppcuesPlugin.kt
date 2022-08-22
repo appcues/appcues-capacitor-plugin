@@ -1,6 +1,8 @@
 package com.appcues.sdk.capacitor
 
+import android.util.Log
 import com.appcues.Appcues
+import com.getcapacitor.JSObject
 import com.getcapacitor.Plugin
 import com.getcapacitor.PluginCall
 import com.getcapacitor.PluginMethod
@@ -18,22 +20,46 @@ class AppcuesPlugin : Plugin() {
 
     @PluginMethod
     fun initialize(call: PluginCall) {
-        val accountID = call.getString("accountID")
-        val applicationID = call.getString("applicationID")
-        if (accountID != null && applicationID != null) {
+        val accountId = call.getString("accountId")
+        val applicationId = call.getString("applicationId")
+        if (accountId != null && applicationId != null) {
             mainScope.launch {
-                implementation = Appcues(context, accountID, applicationID)
+                implementation = Appcues(context, accountId, applicationId) {
+                    AppcuesPluginConfig(call).applyAppcuesConfig(this)
+                }
                 call.resolve()
             }
         }
     }
 
     @PluginMethod
+    fun getVersion(call: PluginCall) {
+        call.resolve(
+            JSObject().apply {
+                put("version", implementation.version)
+            }
+        )
+    }
+
+    @PluginMethod
     fun identify(call: PluginCall) {
-        val userID = call.getString("userID")
-        if (userID != null) {
-            implementation.identify(userID)
+        val userId = call.getString("userId")
+        if (userId != null) {
+            implementation.identify(userId, call.getPropertiesMap())
         }
+        call.resolve()
+    }
+
+    @PluginMethod
+    fun group(call: PluginCall) {
+        val groupId = call.getString("groupId")
+        implementation.group(groupId, call.getPropertiesMap())
+        call.resolve()
+    }
+
+    @PluginMethod
+    fun anonymous(call: PluginCall) {
+        implementation.anonymous(call.getPropertiesMap())
         call.resolve()
     }
 
@@ -41,7 +67,7 @@ class AppcuesPlugin : Plugin() {
     fun screen(call: PluginCall) {
         val title = call.getString("title")
         if (title != null) {
-            implementation.screen(title)
+            implementation.screen(title, call.getPropertiesMap())
         }
         call.resolve()
     }
@@ -50,18 +76,17 @@ class AppcuesPlugin : Plugin() {
     fun track(call: PluginCall) {
         val name = call.getString("name")
         if (name != null) {
-            implementation.track(name)
+            implementation.track(name, call.getPropertiesMap())
         }
         call.resolve()
     }
 
-
     @PluginMethod
     fun show(call: PluginCall) {
-        val experienceID = call.getString("experienceID")
-        if (experienceID != null) {
+        val experienceId = call.getString("experienceId")
+        if (experienceId != null) {
             mainScope.launch {
-                implementation.show(experienceID)
+                implementation.show(experienceId)
             }
         }
         call.resolve()
@@ -70,7 +95,37 @@ class AppcuesPlugin : Plugin() {
     @PluginMethod
     fun debug(call: PluginCall) {
         implementation.debug(activity)
-        
+
         call.resolve()
+    }
+
+    @PluginMethod
+    fun reset(call: PluginCall) {
+        implementation.reset()
+        call.resolve()
+    }
+
+    @PluginMethod
+    fun trackScreens(call: PluginCall) {
+        implementation.trackScreens()
+        call.resolve()
+    }
+
+    @PluginMethod
+    fun stop(call: PluginCall) {
+        implementation.stop()
+        call.resolve()
+    }
+
+    private fun PluginCall.getPropertiesMap(): Map<String, Any>? {
+        return data.getJSObject("properties").toPropertiesMap()
+    }
+
+    private fun JSObject?.toPropertiesMap(): Map<String, Any>? {
+        if (this == null || length() == 0) return null
+
+        return hashMapOf<String, Any>().apply {
+            this@toPropertiesMap.keys().forEach { put(it, this@toPropertiesMap[it]) }
+        }
     }
 }

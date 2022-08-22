@@ -14,10 +14,16 @@ npx cap sync
 <docgen-index>
 
 * [`initialize(...)`](#initialize)
+* [`getVersion()`](#getversion)
 * [`identify(...)`](#identify)
-* [`screen(...)`](#screen)
+* [`group(...)`](#group)
+* [`anonymous(...)`](#anonymous)
+* [`reset()`](#reset)
 * [`track(...)`](#track)
+* [`screen(...)`](#screen)
 * [`show(...)`](#show)
+* [`trackScreens()`](#trackscreens)
+* [`stop()`](#stop)
 * [`debug()`](#debug)
 * [Interfaces](#interfaces)
 
@@ -29,12 +35,23 @@ npx cap sync
 ### initialize(...)
 
 ```typescript
-initialize(options: AppcuesConfig) => Promise<void>
+initialize(options: InitializeOptions) => Promise<void>
 ```
 
-| Param         | Type                                                    |
-| ------------- | ------------------------------------------------------- |
-| **`options`** | <code><a href="#appcuesconfig">AppcuesConfig</a></code> |
+| Param         | Type                                                            |
+| ------------- | --------------------------------------------------------------- |
+| **`options`** | <code><a href="#initializeoptions">InitializeOptions</a></code> |
+
+--------------------
+
+
+### getVersion()
+
+```typescript
+getVersion() => Promise<VersionResponse>
+```
+
+**Returns:** <code>Promise&lt;<a href="#versionresponse">VersionResponse</a>&gt;</code>
 
 --------------------
 
@@ -52,15 +69,37 @@ identify(options: IdentifyOptions) => Promise<void>
 --------------------
 
 
-### screen(...)
+### group(...)
 
 ```typescript
-screen(options: ScreenOptions) => Promise<void>
+group(options: GroupOptions) => Promise<void>
 ```
 
-| Param         | Type                                                    |
-| ------------- | ------------------------------------------------------- |
-| **`options`** | <code><a href="#screenoptions">ScreenOptions</a></code> |
+| Param         | Type                                                  |
+| ------------- | ----------------------------------------------------- |
+| **`options`** | <code><a href="#groupoptions">GroupOptions</a></code> |
+
+--------------------
+
+
+### anonymous(...)
+
+```typescript
+anonymous(options: AnonymousOptions) => Promise<void>
+```
+
+| Param         | Type                                                          |
+| ------------- | ------------------------------------------------------------- |
+| **`options`** | <code><a href="#anonymousoptions">AnonymousOptions</a></code> |
+
+--------------------
+
+
+### reset()
+
+```typescript
+reset() => Promise<void>
+```
 
 --------------------
 
@@ -78,6 +117,19 @@ track(options: TrackOptions) => Promise<void>
 --------------------
 
 
+### screen(...)
+
+```typescript
+screen(options: ScreenOptions) => Promise<void>
+```
+
+| Param         | Type                                                    |
+| ------------- | ------------------------------------------------------- |
+| **`options`** | <code><a href="#screenoptions">ScreenOptions</a></code> |
+
+--------------------
+
+
 ### show(...)
 
 ```typescript
@@ -87,6 +139,24 @@ show(options: ShowOptions) => Promise<void>
 | Param         | Type                                                |
 | ------------- | --------------------------------------------------- |
 | **`options`** | <code><a href="#showoptions">ShowOptions</a></code> |
+
+--------------------
+
+
+### trackScreens()
+
+```typescript
+trackScreens() => Promise<void>
+```
+
+--------------------
+
+
+### stop()
+
+```typescript
+stop() => Promise<void>
+```
 
 --------------------
 
@@ -103,43 +173,76 @@ debug() => Promise<void>
 ### Interfaces
 
 
-#### AppcuesConfig
+#### InitializeOptions
 
-| Prop                | Type                 |
-| ------------------- | -------------------- |
-| **`accountID`**     | <code>string</code>  |
-| **`applicationID`** | <code>string</code>  |
-| **`logging`**       | <code>boolean</code> |
+| Prop                | Type                       |
+| ------------------- | -------------------------- |
+| **`accountId`**     | <code>string</code>        |
+| **`applicationId`** | <code>string</code>        |
+| **`config`**        | <code>AppcuesConfig</code> |
+
+
+#### VersionResponse
+
+| Prop          | Type                |
+| ------------- | ------------------- |
+| **`version`** | <code>string</code> |
 
 
 #### IdentifyOptions
 
-| Prop             | Type                |
-| ---------------- | ------------------- |
-| **`userID`**     | <code>string</code> |
-| **`properties`** | <code>object</code> |
+| Prop             | Type                                  |
+| ---------------- | ------------------------------------- |
+| **`userId`**     | <code>string</code>                   |
+| **`properties`** | <code><a href="#json">JSON</a></code> |
 
 
-#### ScreenOptions
+#### JSON
 
-| Prop             | Type                |
-| ---------------- | ------------------- |
-| **`title`**      | <code>string</code> |
-| **`properties`** | <code>object</code> |
+An intrinsic object that provides functions to convert JavaScript values to and from the JavaScript Object Notation (<a href="#json">JSON</a>) format.
+
+| Method        | Signature                                                                                                                                  | Description                                                                                    |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- |
+| **parse**     | (text: string, reviver?: ((this: any, key: string, value: any) =&gt; any) \| undefined) =&gt; any                                          | Converts a JavaScript Object Notation (<a href="#json">JSON</a>) string into an object.        |
+| **stringify** | (value: any, replacer?: ((this: any, key: string, value: any) =&gt; any) \| undefined, space?: string \| number \| undefined) =&gt; string | Converts a JavaScript value to a JavaScript Object Notation (<a href="#json">JSON</a>) string. |
+| **stringify** | (value: any, replacer?: (string \| number)[] \| null \| undefined, space?: string \| number \| undefined) =&gt; string                     | Converts a JavaScript value to a JavaScript Object Notation (<a href="#json">JSON</a>) string. |
+
+
+#### GroupOptions
+
+| Prop             | Type                                  |
+| ---------------- | ------------------------------------- |
+| **`groupId`**    | <code>string</code>                   |
+| **`properties`** | <code><a href="#json">JSON</a></code> |
+
+
+#### AnonymousOptions
+
+| Prop             | Type                                  |
+| ---------------- | ------------------------------------- |
+| **`properties`** | <code><a href="#json">JSON</a></code> |
 
 
 #### TrackOptions
 
-| Prop             | Type                |
-| ---------------- | ------------------- |
-| **`name`**       | <code>string</code> |
-| **`properties`** | <code>object</code> |
+| Prop             | Type                                  |
+| ---------------- | ------------------------------------- |
+| **`name`**       | <code>string</code>                   |
+| **`properties`** | <code><a href="#json">JSON</a></code> |
+
+
+#### ScreenOptions
+
+| Prop             | Type                                  |
+| ---------------- | ------------------------------------- |
+| **`title`**      | <code>string</code>                   |
+| **`properties`** | <code><a href="#json">JSON</a></code> |
 
 
 #### ShowOptions
 
 | Prop               | Type                |
 | ------------------ | ------------------- |
-| **`experienceID`** | <code>string</code> |
+| **`experienceId`** | <code>string</code> |
 
 </docgen-api>
