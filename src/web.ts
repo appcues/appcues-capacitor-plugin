@@ -1,16 +1,31 @@
 import { WebPlugin } from '@capacitor/core';
-import { AppcuesConfig, IdentifyOptions, ScreenOptions, ShowOptions } from '.';
+import { IdentifyOptions, ScreenOptions, ShowOptions } from '.';
 
-import type { AppcuesPlugin, TrackOptions } from './definitions';
+import type { AnonymousOptions, AppcuesPlugin, GroupOptions, InitializeOptions, TrackOptions, VersionResponse } from './definitions';
 
 export class AppcuesWeb extends WebPlugin implements AppcuesPlugin {
+  async initialize(options: InitializeOptions): Promise<void> {
+    console.log('Appcues initialize');
+    console.log("accountId: ", options.accountId)
+    console.log("applicationId: ", options.applicationId)
+    console.log("config: ", options.config)
+  }
 
-  async initialize(options: AppcuesConfig): Promise<void> {
-    console.log('Appcues initialize', options);
+  async getVersion(): Promise<VersionResponse> {
+    console.log('Appcues.getVersion()')
+    return { version: "0.0.0" }
   }
 
   async identify(options: IdentifyOptions): Promise<void> {
-    console.log(`Appcues.identify(userID: ${options.userID}, options: ${options.properties})`);
+    console.log(`Appcues.identify(userID: ${options.userId}, options: ${options.properties})`);
+  }
+
+  async group(options: GroupOptions): Promise<void> {
+    console.log(`Appcues.group(groupID: ${options.groupId}, options: ${options.properties})`);
+  }
+
+  async anonymous(options: AnonymousOptions): Promise<void> {
+    console.log(`Appcues.anonymous(options: ${options.properties})`);
   }
 
   async screen(options: ScreenOptions): Promise<void> {
@@ -22,8 +37,20 @@ export class AppcuesWeb extends WebPlugin implements AppcuesPlugin {
   }
 
   async show(options: ShowOptions): Promise<void> {
-    console.log(`Appcues.show(experienceID: ${options.experienceID})`);
+    console.log(`Appcues.show(experienceID: ${options.experienceId})`);
   }    
+
+  async reset(): Promise<void> {
+    console.log(`Appcues.reset()`);
+  }
+
+  async trackScreens(): Promise<void> {
+    console.log(`Appcues.trackScreens()`);
+  }
+
+  async stop(): Promise<void> {
+    console.log(`Appcues.stop()`);
+  }
 
   async debug(): Promise<void> {
     console.log(`Appcues.debug()`);
