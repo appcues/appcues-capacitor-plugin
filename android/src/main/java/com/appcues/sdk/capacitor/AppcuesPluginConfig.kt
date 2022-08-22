@@ -7,7 +7,7 @@ import com.getcapacitor.PluginCall
 class AppcuesPluginConfig(val call: PluginCall) {
     private val jsObject = call.getObject("config")
 
-    private val loggingLevel: LoggingLevel = jsObject.getBool("loggingLevel").toLoggingLevel()
+    private val loggingLevel: LoggingLevel = jsObject.getBool("logging").toLoggingLevel()
 
     private val apiBasePath: String? = jsObject.getString("apiBasePath")
 

@@ -17,7 +17,7 @@ public class AppcuesPlugin: CAPPlugin {
 
         let config = Appcues.Config(accountID: accountID, applicationID: applicationID)
 
-        if let logging = call.getBool("loggingLevel") {
+        if let logging = call.getBool("logging") {
             config.logging(logging)
         }
         
@@ -116,12 +116,6 @@ public class AppcuesPlugin: CAPPlugin {
     
     @objc func reset(_ call: CAPPluginCall) {
         implementation?.reset()
-        
-        call.resolve()
-    }
-
-    @objc func trackScreens(_ call: CAPPluginCall) {
-        implementation?.trackScreens()
         
         call.resolve()
     }

@@ -44,10 +44,6 @@ export class AppcuesWeb extends WebPlugin implements AppcuesPlugin {
     console.log(`Appcues.reset()`);
   }
 
-  async trackScreens(): Promise<void> {
-    console.log(`Appcues.trackScreens()`);
-  }
-
   async stop(): Promise<void> {
     console.log(`Appcues.stop()`);
   }

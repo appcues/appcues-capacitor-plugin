@@ -14,6 +14,5 @@ CAP_PLUGIN(AppcuesPlugin, "Appcues",
            CAP_PLUGIN_METHOD(show, CAPPluginReturnPromise);
            CAP_PLUGIN_METHOD(debug, CAPPluginReturnPromise);
            CAP_PLUGIN_METHOD(reset, CAPPluginReturnPromise);
-           CAP_PLUGIN_METHOD(trackScreens, CAPPluginReturnPromise);
            CAP_PLUGIN_METHOD(stop, CAPPluginReturnPromise);
 )

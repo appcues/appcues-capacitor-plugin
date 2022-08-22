@@ -1,16 +1,14 @@
 export interface AppcuesPlugin {
-  initialize(options: InitializeOptions): Promise<void>; // ios
-
-  getVersion(): Promise<VersionResponse>; // ios
-  identify(options: IdentifyOptions): Promise<void>; // ios
-  group(options: GroupOptions): Promise<void>; // ios
-  anonymous(options: AnonymousOptions): Promise<void>; // ios
-  reset(): Promise<void>; // ios
-  track(options: TrackOptions): Promise<void>; // ios
-  screen(options: ScreenOptions): Promise<void>; // ios
-  show(options: ShowOptions): Promise<void>; // ios
-  trackScreens(): Promise<void>; // ios
-  stop(): Promise<void>; // ios
+  initialize(options: InitializeOptions): Promise<void>;
+  getVersion(): Promise<VersionResponse>;
+  identify(options: IdentifyOptions): Promise<void>;
+  group(options: GroupOptions): Promise<void>;
+  anonymous(options: AnonymousOptions): Promise<void>;
+  reset(): Promise<void>;
+  track(options: TrackOptions): Promise<void>;
+  screen(options: ScreenOptions): Promise<void>;
+  show(options: ShowOptions): Promise<void>;
+  stop(): Promise<void>;
   debug(): Promise<void>;
   
 }
@@ -22,7 +20,7 @@ export interface InitializeOptions {
 }
 
 export class AppcuesConfig {
-  loggingLevel: boolean = false;
+  logging: boolean = false;
   apiBasePath: string | null = null;
   sessionTimeout: number | null = null;
   activityStorageMaxSize: number | null = null;
