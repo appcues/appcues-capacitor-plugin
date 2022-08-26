@@ -5,5 +5,11 @@ App/App/public
 DerivedData
 xcuserdata
 
+
+## App packaging
+*.ipa
+*.dSYM.zip
+*.dSYM
+
 # Cordova plugins for Capacitor
 capacitor-cordova-ios-plugins

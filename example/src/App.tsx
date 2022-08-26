@@ -36,7 +36,7 @@ export default function App() {
       let appcuesConfig =  new AppcuesConfig();
       appcuesConfig.logging = true;
 
-      await Appcues.initialize({accountId: 'APPCUES_ACCOUNT_ID', applicationId: 'APPCUES_APPLICATION_ID', config: appcuesConfig});
+      await Appcues.initialize({accountId: '103523', applicationId: '4b6b796f-1313-440a-b356-ee4b7abe931c', config: appcuesConfig});
 
       setInitComplete(true);
     }
