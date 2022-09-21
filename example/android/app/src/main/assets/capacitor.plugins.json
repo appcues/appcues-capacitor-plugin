@@ -1,5 +1,9 @@
 [
 	{
+		"pkg": "@appcues/capacitor",
+		"classpath": "com.appcues.sdk.capacitor.AppcuesPlugin"
+	},
+	{
 		"pkg": "@capacitor/action-sheet",
 		"classpath": "com.capacitorjs.plugins.actionsheet.ActionSheetPlugin"
 	},
@@ -18,9 +22,5 @@
 	{
 		"pkg": "@capacitor/status-bar",
 		"classpath": "com.capacitorjs.plugins.statusbar.StatusBarPlugin"
-	},
-	{
-		"pkg": "appcues-capacitor",
-		"classpath": "com.appcues.sdk.capacitor.AppcuesPlugin"
 	}
 ]

@@ -1,7 +1,7 @@
 {
-  "name": "appcues-capacitor",
+  "name": "@appcues/capacitor",
   "version": "0.0.1",
-  "description": "Appcues SDK",
+  "description": "Capcitor plugin to bridge the native Appcues SDKs in an Ionic application.",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
@@ -17,10 +17,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/appcues/appcues-ios-sdk.git"
+    "url": "git+https://github.com/appcues/appcues-capacitor-plugin.git"
   },
   "bugs": {
-    "url": "https://github.com/appcues/appcues-ios-sdk/issues"
+    "url": "https://github.com/appcues/appcues-capacitor-plugin/issues"
   },
   "keywords": [
     "capacitor",

@@ -1,5 +1,5 @@
 import { IonButton, IonButtons, IonContent, IonHeader, IonInput, IonItem, IonLabel, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import { Appcues } from 'appcues-capacitor';
+import { Appcues } from '@appcues/capacitor';
 import { useHistory } from 'react-router';
 import { GlobalVars } from '../../signin/SignInPage';
 import './HomeProfileTab.css';

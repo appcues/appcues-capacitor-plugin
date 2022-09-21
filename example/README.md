@@ -4,8 +4,6 @@ A simple Ionic app example that uses the Appcues Capacitor plugin to bridge the 
 
 ## Setup
 
-**NOTE:** The Podfiles in `./../ios` and `./ios/App` currently reference the private Appcues podspec.
-
 ```sh
 cd ..
 npm install

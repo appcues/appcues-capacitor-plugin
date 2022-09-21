@@ -1,6 +1,6 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonButtons } from '@ionic/react';
 import './HomeEventsTab.css';
-import { Appcues } from 'appcues-capacitor';
+import { Appcues } from '@appcues/capacitor';
 
 const HomeEventsTab: React.FC = () => {
   const openDebugger = () => {

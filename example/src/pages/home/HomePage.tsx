@@ -7,7 +7,7 @@ import eventsIcon from '../../assets/ic_events.svg'
 import profileIcon from '../../assets/ic_profile.svg'
 import groupIcon from '../../assets/ic_group.svg'
 import './HomePage.css';
-import { Appcues } from 'appcues-capacitor';
+import { Appcues } from '@appcues/capacitor';
 import { useEffect } from 'react';
 
 const path = "/home"
