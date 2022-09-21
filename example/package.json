@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
+    "@appcues/capacitor": "file:..",
     "@capacitor/action-sheet": "^1.0.6",
     "@capacitor/android": "3.4.3",
     "@capacitor/app": "1.0.6",
@@ -21,8 +22,7 @@
     "@types/react": "^16.14.3",
     "@types/react-dom": "^16.9.10",
     "@types/react-router": "^5.1.11",
-    "@types/react-router-dom": "^5.1.7",
-    "appcues-capacitor": "file:..",
+    "@types/react-router-dom": "^5.1.7",    
     "ionicons": "^5.4.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

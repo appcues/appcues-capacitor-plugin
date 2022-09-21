@@ -1,5 +1,5 @@
 import { IonButton, IonContent, IonHeader, IonInput, IonItem, IonLabel, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import { Appcues } from 'appcues-capacitor';
+import { Appcues } from '@appcues/capacitor';
 import './HomeGroupTab.css';
 
 const HomeGroupTab: React.FC = () => {

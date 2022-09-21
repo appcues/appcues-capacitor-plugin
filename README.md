@@ -5,7 +5,7 @@ Capcitor plugin to bridge the native Appcues SDKs in an Ionic application.
 ## Install
 
 ```bash
-npm install appcues-capacitor
+npm install @appcues/capacitor
 npx cap sync
 ```
 

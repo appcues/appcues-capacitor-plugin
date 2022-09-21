@@ -1,5 +1,5 @@
 import { IonButton, IonButtons, IonContent, IonFooter, IonHeader, IonInput, IonItem, IonLabel, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import { Appcues, VersionResponse } from 'appcues-capacitor';
+import { Appcues, VersionResponse } from '@appcues/capacitor';
 import { useEffect, useState } from 'react';
 import { useHistory } from "react-router-dom";
 import './SignInPage.css';

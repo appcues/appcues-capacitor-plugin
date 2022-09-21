@@ -22,7 +22,7 @@ import '@ionic/react/css/text-transformation.css';
 /* Theme variables */
 import './theme/variables.css';
 
-import { Appcues, AppcuesConfig } from 'appcues-capacitor';
+import { Appcues, AppcuesConfig } from '@appcues/capacitor';
 import SignInPage from './pages/signin/SignInPage';
 import HomePage from './pages/home/HomePage';
 
