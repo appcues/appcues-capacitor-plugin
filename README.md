@@ -187,52 +187,41 @@ didHandleURL(options: DidHandleURLOptions) => Promise<DidHandleURLResponse>
 
 #### IdentifyOptions
 
-| Prop             | Type                                  |
-| ---------------- | ------------------------------------- |
-| **`userId`**     | <code>string</code>                   |
-| **`properties`** | <code><a href="#json">JSON</a></code> |
-
-
-#### JSON
-
-An intrinsic object that provides functions to convert JavaScript values to and from the JavaScript Object Notation (<a href="#json">JSON</a>) format.
-
-| Method        | Signature                                                                                                                                  | Description                                                                                    |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- |
-| **parse**     | (text: string, reviver?: ((this: any, key: string, value: any) =&gt; any) \| undefined) =&gt; any                                          | Converts a JavaScript Object Notation (<a href="#json">JSON</a>) string into an object.        |
-| **stringify** | (value: any, replacer?: ((this: any, key: string, value: any) =&gt; any) \| undefined, space?: string \| number \| undefined) =&gt; string | Converts a JavaScript value to a JavaScript Object Notation (<a href="#json">JSON</a>) string. |
-| **stringify** | (value: any, replacer?: (string \| number)[] \| null \| undefined, space?: string \| number \| undefined) =&gt; string                     | Converts a JavaScript value to a JavaScript Object Notation (<a href="#json">JSON</a>) string. |
+| Prop             | Type                |
+| ---------------- | ------------------- |
+| **`userId`**     | <code>string</code> |
+| **`properties`** | <code>object</code> |
 
 
 #### GroupOptions
 
-| Prop             | Type                                  |
-| ---------------- | ------------------------------------- |
-| **`groupId`**    | <code>string</code>                   |
-| **`properties`** | <code><a href="#json">JSON</a></code> |
+| Prop             | Type                |
+| ---------------- | ------------------- |
+| **`groupId`**    | <code>string</code> |
+| **`properties`** | <code>object</code> |
 
 
 #### AnonymousOptions
 
-| Prop             | Type                                  |
-| ---------------- | ------------------------------------- |
-| **`properties`** | <code><a href="#json">JSON</a></code> |
+| Prop             | Type                |
+| ---------------- | ------------------- |
+| **`properties`** | <code>object</code> |
 
 
 #### TrackOptions
 
-| Prop             | Type                                  |
-| ---------------- | ------------------------------------- |
-| **`name`**       | <code>string</code>                   |
-| **`properties`** | <code><a href="#json">JSON</a></code> |
+| Prop             | Type                |
+| ---------------- | ------------------- |
+| **`name`**       | <code>string</code> |
+| **`properties`** | <code>object</code> |
 
 
 #### ScreenOptions
 
-| Prop             | Type                                  |
-| ---------------- | ------------------------------------- |
-| **`title`**      | <code>string</code>                   |
-| **`properties`** | <code><a href="#json">JSON</a></code> |
+| Prop             | Type                |
+| ---------------- | ------------------- |
+| **`title`**      | <code>string</code> |
+| **`properties`** | <code>object</code> |
 
 
 #### ShowOptions
