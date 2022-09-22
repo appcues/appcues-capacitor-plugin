@@ -4,6 +4,11 @@ import { useHistory } from 'react-router';
 import { GlobalVars } from '../../signin/SignInPage';
 import './HomeProfileTab.css';
 
+interface ProfileUpdate {
+  givenName?: string;
+  familyName?: string;
+}
+
 const HomeProfileTab: React.FC = () => {
   let givenName = ""
   let familyName = ""
@@ -17,16 +22,17 @@ const HomeProfileTab: React.FC = () => {
   }
 
   const onSave = () => {
-    let properties = JSON.parse("{}");
+    let update: ProfileUpdate = { }
+
     if(givenName.length != 0) {
-      properties["given_name"] = givenName
+      update.givenName = givenName
     }
 
     if(familyName.length != 0) {
-      properties["family_name"] = familyName
+      update.familyName = familyName
     }
 
-    Appcues.identify({userId: GlobalVars.userId, properties: properties})
+    Appcues.identify({userId: GlobalVars.userId, properties: update})
   }
 
   return (

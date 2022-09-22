@@ -2,6 +2,8 @@ package com.appcues.sdk.capacitor
 
 import android.content.Intent
 import android.net.Uri
+import com.appcues.AnalyticType
+import com.appcues.AnalyticsListener
 import com.appcues.Appcues
 import com.getcapacitor.JSObject
 import com.getcapacitor.Plugin
@@ -11,6 +13,8 @@ import com.getcapacitor.annotation.CapacitorPlugin
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import org.json.JSONArray
+import org.json.JSONObject
 
 @CapacitorPlugin(name = "Appcues")
 class AppcuesPlugin : Plugin() {
@@ -28,7 +32,49 @@ class AppcuesPlugin : Plugin() {
                 implementation = Appcues(context, accountId, applicationId) {
                     AppcuesPluginConfig(call).applyAppcuesConfig(this)
                 }
+                implementation.analyticsListener = object: AnalyticsListener {
+                    override fun trackedAnalytic(
+                        type: AnalyticType,
+                        value: String?,
+                        properties: Map<String, Any>?,
+                        isInternal: Boolean)
+                    {
+                        val data = JSObject().apply {
+                            put("analytic", type.name)
+                            put("value", value ?: "")
+                            put("properties", formatForListener(properties ?: emptyMap<String, Any>()))
+                            put("isInternal", isInternal)
+                        }
+                        notifyListeners("analytics", data)
+                    }
+                }
                 call.resolve()
+            }
+        }
+    }
+
+    private fun formatForListener(values: Map<*, *>): Map<*, *> {
+        return values.mapValues {
+            with(it.value) {
+                when (this) {
+                    // The Android SDK passes dates as a Long Unix timestamp
+                    is Long -> this.toDouble()
+                    is Map<*, *> -> formatForListener(this)
+                    is List<*> -> formatForListener(this)
+                    else -> this
+                }
+            }
+        }
+    }
+
+    private fun formatForListener(values: List<*>): List<*> {
+        return values.map {
+            when (it) {
+                // The Android SDK passes dates as a Long Unix timestamp
+                is Long -> it.toDouble()
+                is Map<*, *> -> formatForListener(it)
+                is List<*> -> formatForListener(it)
+                else -> this
             }
         }
     }
@@ -125,14 +171,36 @@ class AppcuesPlugin : Plugin() {
     }
 
     private fun PluginCall.getPropertiesMap(): Map<String, Any>? {
-        return data.getJSObject("properties").toPropertiesMap()
+        return data.getJSObject("properties")?.let {
+            mapProperties(it)
+        }
     }
 
-    private fun JSObject?.toPropertiesMap(): Map<String, Any>? {
-        if (this == null || length() == 0) return null
-
-        return hashMapOf<String, Any>().apply {
-            this@toPropertiesMap.keys().forEach { put(it, this@toPropertiesMap[it]) }
+    private fun mapProperties(obj: JSONObject): Map<String, Any> {
+        val mapped = mutableMapOf<String, Any>()
+        obj.keys().forEach {
+            val value = obj[it]
+            mapped[it] = when (value) {
+                is JSONObject -> mapProperties(value)
+                is JSONArray -> mapProperties(value)
+                else -> value
+            }
         }
+        return mapped
+    }
+
+    private fun mapProperties(array: JSONArray): List<Any> {
+        val mapped = mutableListOf<Any>()
+        (0 until array.length()).forEach {
+            val value = array.get(it)
+            mapped.add(
+                when (value) {
+                    is JSONObject -> mapProperties(value)
+                    is JSONArray -> mapProperties(value)
+                    else -> value
+                }
+            )
+        }
+        return mapped
     }
 }

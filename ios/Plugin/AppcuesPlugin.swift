@@ -38,7 +38,10 @@ public class AppcuesPlugin: CAPPlugin {
             config.activityStorageMaxAge(UInt(activityStorageMaxAge))
         }
 
-        self.implementation = Appcues(config: config)
+        let appcues = Appcues(config: config)
+        appcues.analyticsDelegate = self
+
+        self.implementation = appcues
 
         call.resolve()
     }
@@ -126,5 +129,71 @@ public class AppcuesPlugin: CAPPlugin {
         let handled = implementation.didHandleURL(url)
     
         call.resolve(["handled": handled])
+    }
+}
+
+extension AppcuesPlugin: AppcuesAnalyticsDelegate {
+    public func didTrack(analytic: AppcuesKit.AppcuesAnalytic, value: String?, properties: [String : Any]?, isInternal: Bool) {
+
+        let analyticName: String
+                switch analytic {
+                case .event:
+                    analyticName = "EVENT"
+                case .screen:
+                    analyticName = "SCREEN"
+                case .identify:
+                    analyticName = "IDENTIFY"
+                case .group:
+                    analyticName = "GROUP"
+                }
+
+        notifyListeners("analytics",
+                        data: [
+                            "analytic": analyticName,
+                            "value": value ?? "",
+                            "properties": formatProperties(properties),
+                            "isInternal": isInternal
+                        ])
+    }
+
+    /// Map any value types that need to be handled in a custom fashion for cross platform consistency
+    private func formatProperties( _ properties: [String: Any]?) -> [String: Any] {
+        guard var properties = properties else { return [:] }
+
+        properties.forEach { key, value in
+            switch value {
+            case let date as Date:
+                // dates will format ISO8601 by default, but we'll match Android and
+                // format to a double value
+                properties[key] = (date.timeIntervalSince1970 * 1000).rounded()
+            case let dict as [String: Any]:
+                properties[key] = formatProperties(dict)
+            case let arr as [Any]:
+                properties[key] = formatProperties(arr)
+            default:
+                break
+            }
+        }
+
+        return properties
+    }
+
+    private func formatProperties( _ properties: [Any]?) -> [Any] {
+        guard var properties = properties else { return [] }
+
+        properties.enumerated().forEach { index, value in
+            switch value {
+            case let date as Date:
+                properties[index] = (date.timeIntervalSince1970 * 1000).rounded()
+            case let dict as [String: Any]:
+                properties[index] = formatProperties(dict)
+            case let arr as [Any]:
+                properties[index] = formatProperties(arr)
+            default:
+                break
+            }
+        }
+
+        return properties
     }
 }

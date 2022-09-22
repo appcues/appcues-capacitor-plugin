@@ -24,7 +24,7 @@ const SignInPage: React.FC = () => {
   };
   
   const onAnonymous = () => {
-    Appcues.anonymous({ properties: JSON.parse('{ "ionic_property_test": "ionic_value"}')})
+    Appcues.anonymous({ properties: { ionic_property_test: "ionic_value" }});
 
     navigateHome()
   };

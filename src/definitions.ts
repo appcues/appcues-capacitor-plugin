@@ -1,4 +1,6 @@
-export interface AppcuesPlugin {
+import {Plugin} from "@capacitor/core";
+
+export interface AppcuesPlugin extends Plugin {
   initialize(options: InitializeOptions): Promise<void>;
   version(): Promise<VersionResponse>;
   identify(options: IdentifyOptions): Promise<void>;
@@ -32,26 +34,26 @@ export interface VersionResponse {
 
 export interface IdentifyOptions {
   userId: string;
-  properties?: JSON
+  properties?: object
 }
 
 export interface GroupOptions {
   groupId: string;
-  properties?: JSON
+  properties?: object
 }
 
 export interface AnonymousOptions {
-  properties?: JSON
+  properties?: object
 }
 
 export interface TrackOptions {
   name: string;
-  properties?: JSON
+  properties?: object
 }
 
 export interface ScreenOptions {
   title: string;
-  properties?: JSON
+  properties?: object
 }
 
 export interface ShowOptions {
