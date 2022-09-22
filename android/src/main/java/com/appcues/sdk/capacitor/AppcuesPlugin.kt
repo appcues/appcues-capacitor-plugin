@@ -1,5 +1,7 @@
 package com.appcues.sdk.capacitor
 
+import android.content.Intent
+import android.net.Uri
 import com.appcues.Appcues
 import com.getcapacitor.JSObject
 import com.getcapacitor.Plugin
@@ -32,7 +34,7 @@ class AppcuesPlugin : Plugin() {
     }
 
     @PluginMethod
-    fun getVersion(call: PluginCall) {
+    fun version(call: PluginCall) {
         call.resolve(
             JSObject().apply {
                 put("version", implementation.version)
@@ -105,9 +107,21 @@ class AppcuesPlugin : Plugin() {
     }
 
     @PluginMethod
-    fun stop(call: PluginCall) {
-        implementation.stop()
-        call.resolve()
+    fun didHandleURL(call: PluginCall) {
+        val url = call.getString("url")
+        val uri = Uri.parse(url)
+        if (activity != null) {
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = uri
+            val handled = implementation.onNewIntent(activity, intent)
+            call.resolve(
+                JSObject().apply {
+                    put("handled", handled)
+                }
+            )
+        } else {
+            call.reject("no-activity", "unable to handle the URL, no current running Activity found")
+        }
     }
 
     private fun PluginCall.getPropertiesMap(): Map<String, Any>? {
