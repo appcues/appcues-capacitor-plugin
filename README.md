@@ -14,7 +14,7 @@ npx cap sync
 <docgen-index>
 
 * [`initialize(...)`](#initialize)
-* [`getVersion()`](#getversion)
+* [`version()`](#version)
 * [`identify(...)`](#identify)
 * [`group(...)`](#group)
 * [`anonymous(...)`](#anonymous)
@@ -22,8 +22,8 @@ npx cap sync
 * [`track(...)`](#track)
 * [`screen(...)`](#screen)
 * [`show(...)`](#show)
-* [`stop()`](#stop)
 * [`debug()`](#debug)
+* [`didHandleURL(...)`](#didhandleurl)
 * [Interfaces](#interfaces)
 
 </docgen-index>
@@ -44,10 +44,10 @@ initialize(options: InitializeOptions) => Promise<void>
 --------------------
 
 
-### getVersion()
+### version()
 
 ```typescript
-getVersion() => Promise<VersionResponse>
+version() => Promise<VersionResponse>
 ```
 
 **Returns:** <code>Promise&lt;<a href="#versionresponse">VersionResponse</a>&gt;</code>
@@ -142,20 +142,26 @@ show(options: ShowOptions) => Promise<void>
 --------------------
 
 
-### stop()
-
-```typescript
-stop() => Promise<void>
-```
-
---------------------
-
-
 ### debug()
 
 ```typescript
 debug() => Promise<void>
 ```
+
+--------------------
+
+
+### didHandleURL(...)
+
+```typescript
+didHandleURL(options: DidHandleURLOptions) => Promise<DidHandleURLResponse>
+```
+
+| Param         | Type                                                                |
+| ------------- | ------------------------------------------------------------------- |
+| **`options`** | <code><a href="#didhandleurloptions">DidHandleURLOptions</a></code> |
+
+**Returns:** <code>Promise&lt;<a href="#didhandleurlresponse">DidHandleURLResponse</a>&gt;</code>
 
 --------------------
 
@@ -234,5 +240,19 @@ An intrinsic object that provides functions to convert JavaScript values to and 
 | Prop               | Type                |
 | ------------------ | ------------------- |
 | **`experienceId`** | <code>string</code> |
+
+
+#### DidHandleURLResponse
+
+| Prop          | Type                 |
+| ------------- | -------------------- |
+| **`handled`** | <code>boolean</code> |
+
+
+#### DidHandleURLOptions
+
+| Prop      | Type                |
+| --------- | ------------------- |
+| **`url`** | <code>string</code> |
 
 </docgen-api>

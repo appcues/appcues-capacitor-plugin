@@ -1,7 +1,7 @@
 import { WebPlugin } from '@capacitor/core';
 import { IdentifyOptions, ScreenOptions, ShowOptions } from '.';
 
-import type { AnonymousOptions, AppcuesPlugin, GroupOptions, InitializeOptions, TrackOptions, VersionResponse } from './definitions';
+import type { AnonymousOptions, AppcuesPlugin, DidHandleURLOptions, DidHandleURLResponse, GroupOptions, InitializeOptions, TrackOptions, VersionResponse } from './definitions';
 
 export class AppcuesWeb extends WebPlugin implements AppcuesPlugin {
   async initialize(options: InitializeOptions): Promise<void> {
@@ -11,7 +11,7 @@ export class AppcuesWeb extends WebPlugin implements AppcuesPlugin {
     console.log("config: ", options.config)
   }
 
-  async getVersion(): Promise<VersionResponse> {
+  async version(): Promise<VersionResponse> {
     console.log('Appcues.getVersion()')
     return { version: "0.0.0" }
   }
@@ -44,11 +44,12 @@ export class AppcuesWeb extends WebPlugin implements AppcuesPlugin {
     console.log(`Appcues.reset()`);
   }
 
-  async stop(): Promise<void> {
-    console.log(`Appcues.stop()`);
-  }
-
   async debug(): Promise<void> {
     console.log(`Appcues.debug()`);
+  }
+
+  async didHandleURL(options: DidHandleURLOptions): Promise<DidHandleURLResponse> {
+    console.log(`Appcues.didHandleURL(url: ${options.url})`);
+    return { handled: true }
   }
 }

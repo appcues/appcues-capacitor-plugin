@@ -11,7 +11,7 @@ export class GlobalVars {
 const SignInPage: React.FC = () => {
   const [ version, setVersion ] = useState<string>('');
 
-  useEffect(() => { Appcues.getVersion().then((response: VersionResponse) => { 
+  useEffect(() => { Appcues.version().then((response: VersionResponse) => { 
     setVersion(response.version)
   })}, []);
 

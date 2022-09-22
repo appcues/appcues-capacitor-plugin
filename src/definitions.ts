@@ -1,6 +1,6 @@
 export interface AppcuesPlugin {
   initialize(options: InitializeOptions): Promise<void>;
-  getVersion(): Promise<VersionResponse>;
+  version(): Promise<VersionResponse>;
   identify(options: IdentifyOptions): Promise<void>;
   group(options: GroupOptions): Promise<void>;
   anonymous(options: AnonymousOptions): Promise<void>;
@@ -8,9 +8,8 @@ export interface AppcuesPlugin {
   track(options: TrackOptions): Promise<void>;
   screen(options: ScreenOptions): Promise<void>;
   show(options: ShowOptions): Promise<void>;
-  stop(): Promise<void>;
   debug(): Promise<void>;
-  
+  didHandleURL(options: DidHandleURLOptions): Promise<DidHandleURLResponse>;
 }
 
 export interface InitializeOptions {
@@ -57,4 +56,12 @@ export interface ScreenOptions {
 
 export interface ShowOptions {
   experienceId: string;
+}
+
+export interface DidHandleURLOptions {
+  url: string;
+}
+
+export interface DidHandleURLResponse {
+  handled: boolean;
 }

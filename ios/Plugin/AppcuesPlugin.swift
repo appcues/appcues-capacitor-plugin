@@ -43,7 +43,7 @@ public class AppcuesPlugin: CAPPlugin {
         call.resolve()
     }
     
-    @objc func getVersion(_ call: CAPPluginCall) {
+    @objc func version(_ call: CAPPluginCall) {
         let version = Appcues.version() as String
     
         call.resolve(["version": version])
@@ -118,8 +118,13 @@ public class AppcuesPlugin: CAPPlugin {
         call.resolve()
     }
     
-    @objc func stop(_ call: CAPPluginCall) {
-        // does nothing on IOS.
-        call.resolve()
+    @objc func didHandleURL(_ call: CAPPluginCall) {
+        guard let implementation = implementation else { return call.reject("Must call initialize") }
+        guard let urlParam = call.getString("url") else { return call.reject("Missing url") }
+        guard let url = URL(string: urlParam) else { return call.reject("Invalid url: \(urlParam)") }
+
+        let handled = implementation.didHandleURL(url)
+    
+        call.resolve(["handled": handled])
     }
 }

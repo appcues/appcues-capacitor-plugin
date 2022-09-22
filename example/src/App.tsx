@@ -25,6 +25,7 @@ import './theme/variables.css';
 import { Appcues, AppcuesConfig } from '@appcues/capacitor';
 import SignInPage from './pages/signin/SignInPage';
 import HomePage from './pages/home/HomePage';
+import AppUrlListener from './pages/AppUrlListener';
 
 export default function App() {
   // Ensures that first _real_ render of the app doesn't occur until
@@ -47,9 +48,10 @@ export default function App() {
 
   return (
   <IonApp>
-      <IonReactRouter>
+      <IonReactRouter>    
+      <AppUrlListener></AppUrlListener>    
         {
-          initComplete && <IonRouterOutlet id="main">
+          initComplete &&  <IonRouterOutlet id="main">
             <Route path="/signIn" component={SignInPage} />
             <Route path="/home" component={HomePage} />
             <Redirect exact from="/" to="/signIn" />

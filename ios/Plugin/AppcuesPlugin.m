@@ -5,7 +5,7 @@
 // each method the plugin supports using the CAP_PLUGIN_METHOD macro.
 CAP_PLUGIN(AppcuesPlugin, "Appcues",
            CAP_PLUGIN_METHOD(initialize, CAPPluginReturnPromise);
-           CAP_PLUGIN_METHOD(getVersion, CAPPluginReturnPromise);
+           CAP_PLUGIN_METHOD(version, CAPPluginReturnPromise);
            CAP_PLUGIN_METHOD(identify, CAPPluginReturnPromise);
            CAP_PLUGIN_METHOD(group, CAPPluginReturnPromise);
            CAP_PLUGIN_METHOD(anonymous, CAPPluginReturnPromise);
@@ -14,5 +14,5 @@ CAP_PLUGIN(AppcuesPlugin, "Appcues",
            CAP_PLUGIN_METHOD(show, CAPPluginReturnPromise);
            CAP_PLUGIN_METHOD(debug, CAPPluginReturnPromise);
            CAP_PLUGIN_METHOD(reset, CAPPluginReturnPromise);
-           CAP_PLUGIN_METHOD(stop, CAPPluginReturnPromise);
+           CAP_PLUGIN_METHOD(didHandleURL, CAPPluginReturnPromise);
 )
