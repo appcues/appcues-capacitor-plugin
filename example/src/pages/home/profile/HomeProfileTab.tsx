@@ -24,11 +24,11 @@ const HomeProfileTab: React.FC = () => {
   const onSave = () => {
     let update: ProfileUpdate = { }
 
-    if(givenName.length != 0) {
+    if(givenName.length !== 0) {
       update.givenName = givenName
     }
 
-    if(familyName.length != 0) {
+    if(familyName.length !== 0) {
       update.familyName = familyName
     }
 
