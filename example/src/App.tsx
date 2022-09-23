@@ -22,7 +22,7 @@ import '@ionic/react/css/text-transformation.css';
 /* Theme variables */
 import './theme/variables.css';
 
-import { Appcues, AppcuesConfig } from '@appcues/capacitor';
+import { Appcues } from '@appcues/capacitor';
 import SignInPage from './pages/signin/SignInPage';
 import HomePage from './pages/home/HomePage';
 import AppUrlListener from './pages/AppUrlListener';
@@ -33,17 +33,8 @@ export default function App() {
   const [initComplete, setInitComplete] = useState(false);
 
   useEffect(() => {
-    const initAppcues = async () => {
-      let appcuesConfig =  new AppcuesConfig();
-      appcuesConfig.logging = true;
-
-      await Appcues.initialize({accountId: 'APPCUES_ACCOUNT_ID', applicationId: 'APPCUES_APPLICATION_ID', config: appcuesConfig});
-
+      Appcues.initialize({accountId: 'APPCUES_ACCOUNT_ID', applicationId: 'APPCUES_APPLICATION_ID', config: { logging: true }});
       setInitComplete(true);
-    }
-    
-    initAppcues();
-
   }, []);
 
   return (
