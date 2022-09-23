@@ -17,15 +17,15 @@ export interface AppcuesPlugin extends Plugin {
 export interface InitializeOptions {
   accountId: string;
   applicationId: string;
-  config: AppcuesConfig;
+  config?: AppcuesConfig;
 }
 
-export class AppcuesConfig {
-  logging: boolean = false;
-  apiBasePath: string | null = null;
-  sessionTimeout: number | null = null;
-  activityStorageMaxSize: number | null = null;
-  activityStorageMaxAge: number | null = null;
+export interface AppcuesConfig {
+  logging?: boolean;
+  apiBasePath?: string;
+  sessionTimeout?: number;
+  activityStorageMaxSize?: number;
+  activityStorageMaxAge?: number;
 }
 
 export interface VersionResponse {
@@ -38,7 +38,7 @@ export interface IdentifyOptions {
 }
 
 export interface GroupOptions {
-  groupId: string;
+  groupId?: string;
   properties?: object
 }
 

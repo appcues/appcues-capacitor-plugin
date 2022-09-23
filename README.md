@@ -171,11 +171,22 @@ didHandleURL(options: DidHandleURLOptions) => Promise<DidHandleURLResponse>
 
 #### InitializeOptions
 
-| Prop                | Type                       |
-| ------------------- | -------------------------- |
-| **`accountId`**     | <code>string</code>        |
-| **`applicationId`** | <code>string</code>        |
-| **`config`**        | <code>AppcuesConfig</code> |
+| Prop                | Type                                                    |
+| ------------------- | ------------------------------------------------------- |
+| **`accountId`**     | <code>string</code>                                     |
+| **`applicationId`** | <code>string</code>                                     |
+| **`config`**        | <code><a href="#appcuesconfig">AppcuesConfig</a></code> |
+
+
+#### AppcuesConfig
+
+| Prop                         | Type                 |
+| ---------------------------- | -------------------- |
+| **`logging`**                | <code>boolean</code> |
+| **`apiBasePath`**            | <code>string</code>  |
+| **`sessionTimeout`**         | <code>number</code>  |
+| **`activityStorageMaxSize`** | <code>number</code>  |
+| **`activityStorageMaxAge`**  | <code>number</code>  |
 
 
 #### VersionResponse

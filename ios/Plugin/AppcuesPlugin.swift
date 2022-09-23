@@ -17,25 +17,27 @@ public class AppcuesPlugin: CAPPlugin {
 
         let config = Appcues.Config(accountID: accountID, applicationID: applicationID)
 
-        if let logging = call.getBool("logging") {
-            config.logging(logging)
-        }
-        
-        if let apiHost = call.getString("apiBasePath"), let url = URL(string: apiHost) {
-            config.apiHost(url)
-        }
-        
-        
-        if let sessionTimeout = call.getInt("sessionTimeout") {
-            config.sessionTimeout(UInt(sessionTimeout))
-        }
+        if let configParams = call.getObject("config") {
 
-        if let activityStorageMaxSize = call.getInt("activityStorageMaxSize") {
-            config.activityStorageMaxSize(UInt(activityStorageMaxSize))
-        }
+            if let logging = configParams["logging"] as? Bool {
+                config.logging(logging)
+            }
 
-        if let activityStorageMaxAge = call.getInt("activityStorageMaxAge") {
-            config.activityStorageMaxAge(UInt(activityStorageMaxAge))
+            if let apiHost = configParams["apiBasePath"] as? String, let url = URL(string: apiHost) {
+                config.apiHost(url)
+            }
+
+            if let sessionTimeout = configParams["sessionTimeout"] as? Int {
+                config.sessionTimeout(UInt(sessionTimeout))
+            }
+
+            if let activityStorageMaxSize = configParams["activityStorageMaxSize"] as? Int {
+                config.activityStorageMaxSize(UInt(activityStorageMaxSize))
+            }
+
+            if let activityStorageMaxAge = configParams["activityStorageMaxAge"] as? Int {
+                config.activityStorageMaxAge(UInt(activityStorageMaxAge))
+            }
         }
 
         let appcues = Appcues(config: config)

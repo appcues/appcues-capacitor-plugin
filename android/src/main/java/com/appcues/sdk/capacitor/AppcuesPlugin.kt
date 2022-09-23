@@ -23,33 +23,31 @@ class AppcuesPlugin : Plugin() {
 
     private val mainScope = CoroutineScope(Dispatchers.Main)
 
-    @PluginMethod
+    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
     fun initialize(call: PluginCall) {
         val accountId = call.getString("accountId")
         val applicationId = call.getString("applicationId")
         if (accountId != null && applicationId != null) {
-            mainScope.launch {
-                implementation = Appcues(context, accountId, applicationId) {
-                    AppcuesPluginConfig(call).applyAppcuesConfig(this)
-                }
-                implementation.analyticsListener = object: AnalyticsListener {
-                    override fun trackedAnalytic(
-                        type: AnalyticType,
-                        value: String?,
-                        properties: Map<String, Any>?,
-                        isInternal: Boolean)
-                    {
-                        val data = JSObject().apply {
-                            put("analytic", type.name)
-                            put("value", value ?: "")
-                            put("properties", formatForListener(properties ?: emptyMap<String, Any>()))
-                            put("isInternal", isInternal)
-                        }
-                        notifyListeners("analytics", data)
-                    }
-                }
-                call.resolve()
+            implementation = Appcues(context, accountId, applicationId) {
+                AppcuesPluginConfig(call).applyAppcuesConfig(this)
             }
+            implementation.analyticsListener = object: AnalyticsListener {
+                override fun trackedAnalytic(
+                    type: AnalyticType,
+                    value: String?,
+                    properties: Map<String, Any>?,
+                    isInternal: Boolean)
+                {
+                    val data = JSObject().apply {
+                        put("analytic", type.name)
+                        put("value", value ?: "")
+                        put("properties", formatForListener(properties ?: emptyMap<String, Any>()))
+                        put("isInternal", isInternal)
+                    }
+                    notifyListeners("analytics", data)
+                }
+            }
+            call.resolve()
         }
     }
 
@@ -88,7 +86,7 @@ class AppcuesPlugin : Plugin() {
         )
     }
 
-    @PluginMethod
+    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
     fun identify(call: PluginCall) {
         val userId = call.getString("userId")
         if (userId != null) {
@@ -97,20 +95,20 @@ class AppcuesPlugin : Plugin() {
         call.resolve()
     }
 
-    @PluginMethod
+    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
     fun group(call: PluginCall) {
         val groupId = call.getString("groupId")
         implementation.group(groupId, call.getPropertiesMap())
         call.resolve()
     }
 
-    @PluginMethod
+    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
     fun anonymous(call: PluginCall) {
         implementation.anonymous(call.getPropertiesMap())
         call.resolve()
     }
 
-    @PluginMethod
+    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
     fun screen(call: PluginCall) {
         val title = call.getString("title")
         if (title != null) {
@@ -119,7 +117,7 @@ class AppcuesPlugin : Plugin() {
         call.resolve()
     }
 
-    @PluginMethod
+    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
     fun track(call: PluginCall) {
         val name = call.getString("name")
         if (name != null) {
@@ -128,7 +126,7 @@ class AppcuesPlugin : Plugin() {
         call.resolve()
     }
 
-    @PluginMethod
+    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
     fun show(call: PluginCall) {
         val experienceId = call.getString("experienceId")
         if (experienceId != null) {
@@ -139,14 +137,14 @@ class AppcuesPlugin : Plugin() {
         call.resolve()
     }
 
-    @PluginMethod
+    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
     fun debug(call: PluginCall) {
         implementation.debug(activity)
 
         call.resolve()
     }
 
-    @PluginMethod
+    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
     fun reset(call: PluginCall) {
         implementation.reset()
         call.resolve()
