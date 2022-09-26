@@ -131,7 +131,11 @@ class AppcuesPlugin : Plugin() {
         val experienceId = call.getString("experienceId")
         if (experienceId != null) {
             mainScope.launch {
-                implementation.show(experienceId)
+                call.resolve(
+                    JSObject().apply {
+                        put("showed", implementation.show(experienceId))
+                    }
+                )
             }
         }
         call.resolve()

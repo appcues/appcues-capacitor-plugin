@@ -104,11 +104,11 @@ public class AppcuesPlugin: CAPPlugin {
 
     @objc func show(_ call: CAPPluginCall) {
         guard let implementation = implementation else { return call.reject("Must call initialize") }
-        guard let experienceID = call.getString("experienceID") else { return call.reject("Missing experience ID") }
+        guard let experienceID = call.getString("experienceId") else { return call.reject("Missing experience ID") }
 
-        implementation.show(experienceID: experienceID)
-
-        call.resolve()
+        implementation.show(experienceID: experienceID) { success, _ in
+            call.resolve(["showed": success])
+        }
     }
     
     @objc func debug(_ call: CAPPluginCall) {

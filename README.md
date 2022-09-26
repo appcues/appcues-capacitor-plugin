@@ -24,12 +24,12 @@ This capacitor is a bridge between the native Appcues SDKs in an Ionic applicati
 
 ### Installation
 
-1. In your app's root directory, run
-   ```sh
-   npm install @appcues/capacitor
-   
-   npx cap sync
-   ```
+In your app's root directory, run:
+```sh
+npm install @appcues/capacitor
+
+npx cap sync
+```
 
 Note: You do not need to manually update your Podfile to add Appcues.
 
@@ -80,7 +80,7 @@ Appcues.screen({title: "Contact List", properties: { reference: "abc" }})
 
 ## 📝 Documentation
 
-More technical documentation about this capacitor is available in the [`docs` directory](https://github.com/appcues/appcues-capacitor-plugin/tree/main/docs). Auto-generated documentation is available [here](http://github.com/appcues/appcues-capacitor-plugin/tree/main/docs/ApiDefinition.md).
+More technical documentation about this capacitor is available in the [docs](https://github.com/appcues/appcues-capacitor-plugin/tree/main/docs). Auto-generated documentation is available [here](http://github.com/appcues/appcues-capacitor-plugin/tree/main/docs/ApiDefinition.md).
 
 > Full documentation is available at https://docs.appcues.com/
 
