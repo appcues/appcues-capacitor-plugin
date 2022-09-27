@@ -49,7 +49,7 @@ open the `android` project subdirectory in Android Studio.
 This example app requires you to fill in an Appcues Account ID and an Appcues Application ID in `App.tsx`. You can enter your own values found in [Appcues Studio](https://studio.appcues.com), or use the following test values:
 ```
 APPCUES_ACCOUNT_ID=103523
-APPCUES_APPLICATION_ID=ca73c634-1978-46b4-b73d-eb3367a66925
+APPCUES_APPLICATION_ID=6f6a1ab2-bbf2-43ab-9a91-6325d12e6649
 ```
 
 ## ✨ Functionality
@@ -86,6 +86,4 @@ A textfield is included to set the group for the current user using `Appcues.gro
 
 ## Modifying
 
-If you're changing the plugin, you need to `npm run build` to sync plugin changes to the test app.
-
-If you're changing the test app, you need to `npm run build` and `npx cap sync` to sync changes to the iOS and Android workspaces.
+Whenever modifying the plugin or the test app, please make sure to run `npm run build` && `npx cap sync` to reflect changes.

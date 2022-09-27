@@ -1,6 +1,6 @@
 # appcues-capacitor-plugin
 
-Capcitor plugin to bridge the native Appcues SDKs in an Ionic application.
+Capacitor plugin to bridge the native Appcues SDKs in an Ionic application.
 
 ## Install
 
@@ -37,11 +37,11 @@ npx cap sync
 initialize(options: InitializeOptions) => Promise<void>
 ```
 
-Initialize the plugin.
+Initialize the plugin
 
-| Param         | Type                                                            | Description                                                                                                                                                                              |
-| ------------- | --------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`options`** | <code><a href="#initializeoptions">InitializeOptions</a></code> | The initialization options to initialize appcues. provide the [accountId] and [applicationId] for the application using the plugin. Optionally provide [config] to configure the plugin. |
+| Param         | Type                                                            | Description                                                                                                                                                                       |
+| ------------- | --------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`options`** | <code><a href="#initializeoptions">InitializeOptions</a></code> | The initialization options to initialize appcues. provide the accountId and applicationId for the application using the plugin. Optionally provide config to configure the plugin |
 
 --------------------
 
@@ -52,7 +52,7 @@ Initialize the plugin.
 version() => Promise<VersionResponse>
 ```
 
-Returns the current version of the Appcues SDK.
+Returns the current version of the Appcues SDK
 
 **Returns:** <code>Promise&lt;<a href="#versionresponse">VersionResponse</a>&gt;</code>
 
@@ -65,11 +65,11 @@ Returns the current version of the Appcues SDK.
 identify(options: IdentifyOptions) => Promise<void>
 ```
 
-Identify a user in the application.
+Identify a user in the application
 
-| Param         | Type                                                        | Description                                                                                           |
-| ------------- | ----------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| **`options`** | <code><a href="#identifyoptions">IdentifyOptions</a></code> | To identify a known user, pass the [userId] and optionally specify any additional custom [properties] |
+| Param         | Type                                                        | Description                                                                                       |
+| ------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| **`options`** | <code><a href="#identifyoptions">IdentifyOptions</a></code> | To identify a known user, pass the userId and optionally specify any additional custom properties |
 
 --------------------
 
@@ -80,11 +80,11 @@ Identify a user in the application.
 group(options: GroupOptions) => Promise<void>
 ```
 
-Identify a group for the current user.
+Identify a group for the current user
 
-| Param         | Type                                                  | Description                                                                                                                                                  |
-| ------------- | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **`options`** | <code><a href="#groupoptions">GroupOptions</a></code> | To specify that the current user belongs to a certain [group], pass the [groupId] and optionally specify any additional custom group [properties] to update. |
+| Param         | Type                                                  | Description                                                                                                                                           |
+| ------------- | ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`options`** | <code><a href="#groupoptions">GroupOptions</a></code> | To specify that the current user belongs to a certain group, pass the groupId and optionally specify any additional custom group properties to update |
 
 --------------------
 
@@ -99,11 +99,11 @@ Generate a unique Id for the current user when there is not a known
 identity to use in the [idenfity]{@link AppcuesPlugin#idenfity} call.
 
 This will cause the plugin to begin tracking activity and checking 
-for qualified content.
+for qualified content
 
-| Param         | Type                                                          | Description                               |
-| ------------- | ------------------------------------------------------------- | ----------------------------------------- |
-| **`options`** | <code><a href="#anonymousoptions">AnonymousOptions</a></code> | Specify extra [properties] for this call. |
+| Param         | Type                                                          | Description                            |
+| ------------- | ------------------------------------------------------------- | -------------------------------------- |
+| **`options`** | <code><a href="#anonymousoptions">AnonymousOptions</a></code> | Specify extra properties for this call |
 
 --------------------
 
@@ -116,7 +116,7 @@ reset() => Promise<void>
 
 Clear out the current user in this session.
 
-This can be used when the user logs out of your application.
+This can be used when the user logs out of your application
 
 --------------------
 
@@ -127,11 +127,11 @@ This can be used when the user logs out of your application.
 track(options: TrackOptions) => Promise<void>
 ```
 
-Track an event for an action taken by a user.
+Track an event for an action taken by a user
 
-| Param         | Type                                                  | Description                                                                                                |
-| ------------- | ----------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| **`options`** | <code><a href="#trackoptions">TrackOptions</a></code> | Specify any [name] for the event and optionally any [properties] that supply more context about the event. |
+| Param         | Type                                                  | Description                                                                                           |
+| ------------- | ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| **`options`** | <code><a href="#trackoptions">TrackOptions</a></code> | Specify any name for the event and optionally any properties that supply more context about the event |
 
 --------------------
 
@@ -142,11 +142,11 @@ Track an event for an action taken by a user.
 screen(options: ScreenOptions) => Promise<void>
 ```
 
-Track a screen viewed by a user.
+Track a screen viewed by a user
 
-| Param         | Type                                                    | Description                                                                                                              |
-| ------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| **`options`** | <code><a href="#screenoptions">ScreenOptions</a></code> | Specify the [title] of the screen and optionally any [properties] that provide additional context about the screen view. |
+| Param         | Type                                                    | Description                                                                                                         |
+| ------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| **`options`** | <code><a href="#screenoptions">ScreenOptions</a></code> | Specify the title of the screen and optionally any properties that provide additional context about the screen view |
 
 --------------------
 
@@ -157,11 +157,11 @@ Track a screen viewed by a user.
 show(options: ShowOptions) => Promise<DidShowResponse>
 ```
 
-Forces a specific Appcues experience to apper for the current user by passing in the [experienceId].
+Forces a specific Appcues experience to appear for the current user by passing in the experienceId
 
-| Param         | Type                                                | Description                 |
-| ------------- | --------------------------------------------------- | --------------------------- |
-| **`options`** | <code><a href="#showoptions">ShowOptions</a></code> | THe [experienceId] to show. |
+| Param         | Type                                                | Description              |
+| ------------- | --------------------------------------------------- | ------------------------ |
+| **`options`** | <code><a href="#showoptions">ShowOptions</a></code> | The experienceId to show |
 
 **Returns:** <code>Promise&lt;<a href="#didshowresponse">DidShowResponse</a>&gt;</code>
 
@@ -174,7 +174,7 @@ Forces a specific Appcues experience to apper for the current user by passing in
 debug() => Promise<void>
 ```
 
-Launch the Appcues debugger over your app's UI.
+Launch the Appcues debugger over your app's UI
 
 --------------------
 
@@ -185,11 +185,11 @@ Launch the Appcues debugger over your app's UI.
 didHandleURL(options: DidHandleURLOptions) => Promise<DidHandleURLResponse>
 ```
 
-Verifies if the incoming [url] value is intended for the Appcues SDK.
+Verifies if the incoming url value is intended for the Appcues SDK
 
-| Param         | Type                                                                |
-| ------------- | ------------------------------------------------------------------- |
-| **`options`** | <code><a href="#didhandleurloptions">DidHandleURLOptions</a></code> |
+| Param         | Type                                                                | Description        |
+| ------------- | ------------------------------------------------------------------- | ------------------ |
+| **`options`** | <code><a href="#didhandleurloptions">DidHandleURLOptions</a></code> | containing the url |
 
 **Returns:** <code>Promise&lt;<a href="#didhandleurlresponse">DidHandleURLResponse</a>&gt;</code>
 
@@ -210,9 +210,9 @@ Verifies if the incoming [url] value is intended for the Appcues SDK.
 
 #### VersionResponse
 
-| Prop          | Type                | Description                              |
-| ------------- | ------------------- | ---------------------------------------- |
-| **`version`** | <code>string</code> | version of the Appcues plugin installed. |
+| Prop          | Type                | Description                             |
+| ------------- | ------------------- | --------------------------------------- |
+| **`version`** | <code>string</code> | version of the Appcues plugin installed |
 
 
 #### IdentifyOptions
@@ -256,9 +256,9 @@ Verifies if the incoming [url] value is intended for the Appcues SDK.
 
 #### DidShowResponse
 
-| Prop         | Type                 | Description                               |
-| ------------ | -------------------- | ----------------------------------------- |
-| **`showed`** | <code>boolean</code> | whether the experience os showed to user. |
+| Prop         | Type                 | Description                              |
+| ------------ | -------------------- | ---------------------------------------- |
+| **`showed`** | <code>boolean</code> | whether the experience os showed to user |
 
 
 #### ShowOptions
@@ -270,15 +270,15 @@ Verifies if the incoming [url] value is intended for the Appcues SDK.
 
 #### DidHandleURLResponse
 
-| Prop          | Type                 | Description                                    |
-| ------------- | -------------------- | ---------------------------------------------- |
-| **`handled`** | <code>boolean</code> | whether the url was handled by Appcues plugin. |
+| Prop          | Type                 | Description                                   |
+| ------------- | -------------------- | --------------------------------------------- |
+| **`handled`** | <code>boolean</code> | whether the url was handled by Appcues plugin |
 
 
 #### DidHandleURLOptions
 
-| Prop      | Type                | Description         |
-| --------- | ------------------- | ------------------- |
-| **`url`** | <code>string</code> | incoming deep link. |
+| Prop      | Type                | Description        |
+| --------- | ------------------- | ------------------ |
+| **`url`** | <code>string</code> | incoming deep link |
 
 </docgen-api>
