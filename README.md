@@ -1,6 +1,6 @@
 # Appcues Capacitor Plugin
 
-[![CircleCI](https://circleci.com/gh/appcues/appcues-capacitor-plugin/tree/main.svg?style=shield)](https://circleci.com/gh/appcues/appcues-react-native-module/tree/main)
+[![CircleCI](https://circleci.com/gh/appcues/appcues-capacitor-plugin/tree/main.svg?style=shield)](https://circleci.com/gh/appcues/appcues-capacitor-plugin/tree/main)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/appcues/appcues-capacitor-plugin/blob/main/LICENSE)
 
 Appcues Capacitor Plugin allows you to integrate Appcues experiences into your Ionic apps for iOS and Android devices.

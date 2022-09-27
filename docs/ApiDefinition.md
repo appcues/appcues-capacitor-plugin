@@ -154,16 +154,16 @@ Track a screen viewed by a user
 ### show(...)
 
 ```typescript
-show(options: ShowOptions) => Promise<DidShowResponse>
+show(options: ShowOptions) => Promise<void>
 ```
 
-Forces a specific Appcues experience to appear for the current user by passing in the experienceId
+Forces a specific Appcues experience to appear for the current user by passing in the experienceId.
+
+Promise will be rejected in case Appcues SDK does not show the experience
 
 | Param         | Type                                                | Description              |
 | ------------- | --------------------------------------------------- | ------------------------ |
 | **`options`** | <code><a href="#showoptions">ShowOptions</a></code> | The experienceId to show |
-
-**Returns:** <code>Promise&lt;<a href="#didshowresponse">DidShowResponse</a>&gt;</code>
 
 --------------------
 
@@ -252,13 +252,6 @@ Verifies if the incoming url value is intended for the Appcues SDK
 | ---------------- | ------------------- | ------------------ |
 | **`title`**      | <code>string</code> | name of the screen |
 | **`properties`** | <code>object</code> | extra properties   |
-
-
-#### DidShowResponse
-
-| Prop         | Type                 | Description                              |
-| ------------ | -------------------- | ---------------------------------------- |
-| **`showed`** | <code>boolean</code> | whether the experience os showed to user |
 
 
 #### ShowOptions

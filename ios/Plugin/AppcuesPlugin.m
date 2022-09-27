@@ -11,7 +11,7 @@ CAP_PLUGIN(AppcuesPlugin, "Appcues",
            CAP_PLUGIN_METHOD(anonymous, CAPPluginReturnNone);
            CAP_PLUGIN_METHOD(screen, CAPPluginReturnNone);
            CAP_PLUGIN_METHOD(track, CAPPluginReturnNone);
-           CAP_PLUGIN_METHOD(show, CAPPluginReturnNone);
+           CAP_PLUGIN_METHOD(show, CAPPluginReturnPromise);
            CAP_PLUGIN_METHOD(debug, CAPPluginReturnNone);
            CAP_PLUGIN_METHOD(reset, CAPPluginReturnNone);
            CAP_PLUGIN_METHOD(didHandleURL, CAPPluginReturnPromise);
