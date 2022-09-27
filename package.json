@@ -1,6 +1,6 @@
 {
   "name": "@appcues/capacitor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Capcitor plugin to bridge the native Appcues SDKs in an Ionic application.",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
