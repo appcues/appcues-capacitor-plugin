@@ -13,14 +13,16 @@
     "ios/Plugin/",
     "AppcuesCapacitor.podspec"
   ],
-  "author": "Appcues",
+  "repository": "https://github.com/appcues/appcues-capacitor-plugin",
+  "author": "Appcues <mobile@appcues.com> (https://www.appcues.com)",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/appcues/appcues-capacitor-plugin.git"
-  },
   "bugs": {
     "url": "https://github.com/appcues/appcues-capacitor-plugin/issues"
+  },
+  "homepage": "https://github.com/appcues/appcues-capacitor-plugin#readme",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   },
   "keywords": [
     "capacitor",
