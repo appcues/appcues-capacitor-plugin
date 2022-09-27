@@ -49,7 +49,7 @@ Initializing the SDK requires you to provide two values, an Appcues account ID, 
 
 #### Supporting Debugging and Experience Previewing
 
-Supporting debugging and experience previewing is not required for the Appcues React Native Module to function, but it is necessary for the optimal Appcues builder experience. Refer to the [URL Scheme Configuration Guide](https://github.com/appcues/appcues-capacitor-plugin/blob/main/docs/URLSchemeConfiguring.md) for details on how to configure.
+Supporting debugging and experience previewing is not required for the Appcues Capacitor Plugin to function, but it is necessary for the optimal Appcues builder experience. Refer to the [URL Scheme Configuration Guide](https://github.com/appcues/appcues-capacitor-plugin/blob/main/docs/URLSchemeConfiguring.md) for details on how to configure.
 
 ### Identifying Users
 

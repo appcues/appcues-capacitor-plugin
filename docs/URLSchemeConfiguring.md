@@ -61,11 +61,8 @@ For more information see Ionic documentation on [deeplinks](https://ionicframewo
 
 The Appcues debugger allows you to easily validate that the Appcues deeplink is properly configured.
 
-1. Launch the debugger in your app with a call to ``Appcues/debug()``.
+1. Launch the debugger in your app with a call to ``Appcues.debug()``.
 2. Expand the debugger by tapping the floating button.
 3. Tap the "Appcues Deeplink Configured" row to verify the status. If a checkmark appears, the Appcues deeplink is properly configured.
 
-### Troubleshooting
-
-- `Error 1`: AndroidManifest intent-filter scheme missing
-- `Error 2`: Appcues SDK not receiving links
+For troubleshooting, please consult the respective doc for [android](https://github.com/appcues/appcues-android-sdk/blob/main/docs/URLSchemeConfiguring.md) or [ios](https://appcues.github.io/appcues-ios-sdk/documentation/appcueskit/urlschemeconfiguring)
