@@ -13,7 +13,10 @@
     "ios/Plugin/",
     "AppcuesCapacitor.podspec"
   ],
-  "repository": "https://github.com/appcues/appcues-capacitor-plugin",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/appcues/appcues-capacitor-plugin.git"
+  },
   "author": "Appcues <mobile@appcues.com> (https://www.appcues.com)",
   "license": "MIT",
   "bugs": {
