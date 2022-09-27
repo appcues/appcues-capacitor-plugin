@@ -16,6 +16,7 @@ import kotlinx.coroutines.launch
 import org.json.JSONArray
 import org.json.JSONObject
 
+@Suppress("unused")
 @CapacitorPlugin(name = "Appcues")
 class AppcuesPlugin : Plugin() {
 
@@ -31,13 +32,13 @@ class AppcuesPlugin : Plugin() {
             implementation = Appcues(context, accountId, applicationId) {
                 AppcuesPluginConfig(call).applyAppcuesConfig(this)
             }
-            implementation.analyticsListener = object: AnalyticsListener {
+            implementation.analyticsListener = object : AnalyticsListener {
                 override fun trackedAnalytic(
                     type: AnalyticType,
                     value: String?,
                     properties: Map<String, Any>?,
-                    isInternal: Boolean)
-                {
+                    isInternal: Boolean
+                ) {
                     val data = JSObject().apply {
                         put("analytic", type.name)
                         put("value", value ?: "")
@@ -126,19 +127,20 @@ class AppcuesPlugin : Plugin() {
         call.resolve()
     }
 
-    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
+    @PluginMethod
     fun show(call: PluginCall) {
         val experienceId = call.getString("experienceId")
         if (experienceId != null) {
             mainScope.launch {
-                call.resolve(
-                    JSObject().apply {
-                        put("showed", implementation.show(experienceId))
-                    }
-                )
+                if (implementation.show(experienceId)) {
+                    call.resolve()
+                } else {
+                    call.reject("unable to show experience $experienceId")
+                }
             }
+        } else {
+            call.reject("Missing experienceId")
         }
-        call.resolve()
     }
 
     @PluginMethod(returnType = PluginMethod.RETURN_NONE)

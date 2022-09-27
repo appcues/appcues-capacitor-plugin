@@ -66,13 +66,13 @@ export interface AppcuesPlugin extends Plugin {
   screen(options: ScreenOptions): Promise<void>;
 
   /**
-   * Forces a specific Appcues experience to appear for the current user by passing in the experienceId
+   * Forces a specific Appcues experience to appear for the current user by passing in the experienceId.
+   * 
+   * Promise will be rejected in case Appcues SDK does not show the experience
    * 
    * @param {ShowOptions} options The experienceId to show
-   * @return {DidShowResponse} value to indicate whether the experience was able to be shown `true` or not `false`.
-   *         This function ignores any targeting that is set on the experience
    */
-  show(options: ShowOptions): Promise<DidShowResponse>;
+  show(options: ShowOptions): Promise<void>;
 
   /**
    * Launch the Appcues debugger over your app's UI
@@ -206,13 +206,6 @@ export interface ShowOptions {
    * experience id
    */
   experienceId: string;
-}
-
-export interface DidShowResponse {
-  /**
-   * whether the experience os showed to user
-   */
-  showed: boolean;
 }
 
 export interface DidHandleURLOptions {
