@@ -26,7 +26,7 @@ executors:
     working_directory: ~/project
   ios_compatible:
     macos:
-      xcode: 13.0.0
+      xcode: 14.0.0
     working_directory: ~/project/example/ios/App
     shell: /bin/bash --login -o pipefail
     environment:
@@ -59,13 +59,13 @@ commands:
     steps:
       - restore_cache:
           name: Restore gem cache
-          key: 1-gems-{{ checksum "Gemfile.lock" }}
+          key: 2-gems-{{ checksum "Gemfile.lock" }}
       - run:
           name: Install gem dependencies
-          command: bundle check || bundle install --path vendor/bundle
+          command: bundle check || bundle install --deployment --path vendor/bundle
       - save_cache:
           name: Save gem cache
-          key: 1-gems-{{ checksum "Gemfile.lock" }}
+          key: 2-gems-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
 
