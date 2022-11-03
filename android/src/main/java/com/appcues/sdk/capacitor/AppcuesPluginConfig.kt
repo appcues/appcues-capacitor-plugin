@@ -23,6 +23,8 @@ class AppcuesPluginConfig(call: PluginCall) {
         sessionTimeout?.let { appcuesConfig.sessionTimeout = it }
         activityStorageMaxSize?.let { appcuesConfig.activityStorageMaxSize = it }
         activityStorageMaxAge?.let { appcuesConfig.activityStorageMaxAge = it }
+
+        appcuesConfig.additionalAutoProperties = mapOf("_applicationFramework" to "capacitor")
     }
 
     private fun Boolean?.toLoggingLevel(): LoggingLevel {

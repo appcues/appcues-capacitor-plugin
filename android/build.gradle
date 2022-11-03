@@ -6,7 +6,7 @@ ext {
 }
 
 buildscript {
-    ext.kotlin_version = '1.7.10'
+    ext.kotlin_version = '1.7.20'
     repositories {
         google()
         mavenCentral()
@@ -21,10 +21,10 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion project.hasProperty('compileSdkVersion') ? rootProject.ext.compileSdkVersion : 32
+    compileSdkVersion project.hasProperty('compileSdkVersion') ? rootProject.ext.compileSdkVersion : 33
     defaultConfig {
         minSdkVersion project.hasProperty('minSdkVersion') ? rootProject.ext.minSdkVersion : 22
-        targetSdkVersion project.hasProperty('targetSdkVersion') ? rootProject.ext.targetSdkVersion : 32
+        targetSdkVersion project.hasProperty('targetSdkVersion') ? rootProject.ext.targetSdkVersion : 33
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -51,8 +51,8 @@ repositories {
 
 
 dependencies {
-    implementation "com.appcues:appcues:1.0.0"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1"
+    implementation "com.appcues:appcues:1.1.0"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.3"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':capacitor-android')
@@ -60,6 +60,6 @@ dependencies {
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "androidx.test.ext:junit:$androidxJunitVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$androidxEspressoCoreVersion"
-    implementation "androidx.core:core-ktx:1.8.0"
+    implementation "androidx.core:core-ktx:1.9.0"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }

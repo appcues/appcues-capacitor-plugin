@@ -23,6 +23,25 @@ This capacitor is a bridge between the native Appcues SDKs in an Ionic applicati
 
 ## 🚀 Getting Started
 
+### Prerequisites
+
+**Android** - your application's `build.gradle` must have a `compileSdkVersion` of 33+ and `minSdkVersion` of 21+
+```
+android {
+    compileSdkVersion 33
+
+    defaultConfig {
+        minSdkVersion 21
+    }
+}
+```
+
+**iOS** - your application must target iOS 11+ to install the SDK, and iOS 13+ to render Appcues content. Update the iOS project xcodeproj to set the deployment target, if needed. In the application's `Podfile`, include at least this minimum version.
+```rb
+# Podfile
+platform :ios, '11.0'
+```
+
 ### Installation
 
 In your app's root directory, run:

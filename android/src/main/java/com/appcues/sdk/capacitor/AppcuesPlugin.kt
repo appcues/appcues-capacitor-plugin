@@ -42,39 +42,13 @@ class AppcuesPlugin : Plugin() {
                     val data = JSObject().apply {
                         put("analytic", type.name)
                         put("value", value ?: "")
-                        put("properties", formatForListener(properties ?: emptyMap<String, Any>()))
+                        put("properties", properties ?: emptyMap<String, Any>())
                         put("isInternal", isInternal)
                     }
                     notifyListeners("analytics", data)
                 }
             }
             call.resolve()
-        }
-    }
-
-    private fun formatForListener(values: Map<*, *>): Map<*, *> {
-        return values.mapValues {
-            with(it.value) {
-                when (this) {
-                    // The Android SDK passes dates as a Long Unix timestamp
-                    is Long -> this.toDouble()
-                    is Map<*, *> -> formatForListener(this)
-                    is List<*> -> formatForListener(this)
-                    else -> this
-                }
-            }
-        }
-    }
-
-    private fun formatForListener(values: List<*>): List<*> {
-        return values.map {
-            when (it) {
-                // The Android SDK passes dates as a Long Unix timestamp
-                is Long -> it.toDouble()
-                is Map<*, *> -> formatForListener(it)
-                is List<*> -> formatForListener(it)
-                else -> this
-            }
         }
     }
 
