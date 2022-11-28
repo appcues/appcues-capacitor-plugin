@@ -16,6 +16,7 @@ public class AppcuesPlugin: CAPPlugin {
         guard let applicationID = call.getString("applicationId") else { return call.reject("Missing application ID") }
 
         let config = Appcues.Config(accountID: accountID, applicationID: applicationID)
+        var enableUniversalLinks = false
 
         if let configParams = call.getObject("config") {
 
@@ -38,7 +39,11 @@ public class AppcuesPlugin: CAPPlugin {
             if let activityStorageMaxAge = configParams["activityStorageMaxAge"] as? Int {
                 config.activityStorageMaxAge(UInt(activityStorageMaxAge))
             }
+
+            enableUniversalLinks = configParams["enableUniversalLinks"] as? Bool ?? false
         }
+
+        config.enableUniversalLinks(enableUniversalLinks)
 
         config.additionalAutoProperties([
             "_applicationFramework": "capacitor"
