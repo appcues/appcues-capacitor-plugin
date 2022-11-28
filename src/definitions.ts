@@ -141,6 +141,17 @@ export class AppcuesConfig {
    * There is no max age limitation if this value is left unset
    */
   activityStorageMaxAge?: number;
+  /**
+   * Applies to iOS only. When enabled, the iOS SDK will pass potential 
+   * universal links back to the host application AppDelegate function
+   * `application(_:continue:restorationHandler:)`. The host
+   * application is responsible for returning true if the link was handled
+   * as a deep link into a screen in the app, or false if not. By default, 
+   * universal link support is disabled for Ionic applications, since the 
+   * default app template always returns a true value from 
+   * `application(_:continue:restorationHandler:)`and blocks subsequent link handling.
+   */
+  enableUniversalLinks?: boolean;
 }
 
 export interface VersionResponse {
