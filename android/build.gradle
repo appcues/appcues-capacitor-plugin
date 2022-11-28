@@ -51,7 +51,7 @@ repositories {
 
 
 dependencies {
-    implementation "com.appcues:appcues:1.1.0"
+    implementation "com.appcues:appcues:1.1.1"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.3"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
     implementation fileTree(dir: 'libs', include: ['*.jar'])
