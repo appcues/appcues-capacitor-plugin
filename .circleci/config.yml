@@ -22,7 +22,7 @@ orbs:
 executors:
   js_compatible:
     docker:
-      - image: cimg/node:18.4.0
+      - image: cimg/node:19.6.1
     working_directory: ~/project
   ios_compatible:
     macos:
