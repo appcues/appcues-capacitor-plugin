@@ -17,7 +17,7 @@ npx cap sync
 * [`version()`](#version)
 * [`identify(...)`](#identify)
 * [`group(...)`](#group)
-* [`anonymous(...)`](#anonymous)
+* [`anonymous()`](#anonymous)
 * [`reset()`](#reset)
 * [`track(...)`](#track)
 * [`screen(...)`](#screen)
@@ -89,21 +89,17 @@ Identify a group for the current user
 --------------------
 
 
-### anonymous(...)
+### anonymous()
 
 ```typescript
-anonymous(options: AnonymousOptions) => Promise<void>
+anonymous() => Promise<void>
 ```
 
 Generate a unique Id for the current user when there is not a known 
-identity to use in the [idenfity]{@link AppcuesPlugin#idenfity} call.
+identity to use in the [identify]{@link AppcuesPlugin#identify} call.
 
 This will cause the plugin to begin tracking activity and checking 
 for qualified content
-
-| Param         | Type                                                          | Description                            |
-| ------------- | ------------------------------------------------------------- | -------------------------------------- |
-| **`options`** | <code><a href="#anonymousoptions">AnonymousOptions</a></code> | Specify extra properties for this call |
 
 --------------------
 
@@ -229,13 +225,6 @@ Verifies if the incoming url value is intended for the Appcues SDK
 | ---------------- | ------------------- | ----------------------------------- |
 | **`groupId`**    | <code>string</code> | group user is being identified with |
 | **`properties`** | <code>object</code> | extra properties                    |
-
-
-#### AnonymousOptions
-
-| Prop             | Type                | Description      |
-| ---------------- | ------------------- | ---------------- |
-| **`properties`** | <code>object</code> | extra properties |
 
 
 #### TrackOptions
