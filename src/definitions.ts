@@ -33,14 +33,12 @@ export interface AppcuesPlugin extends Plugin {
 
   /**
    * Generate a unique Id for the current user when there is not a known 
-   * identity to use in the [idenfity]{@link AppcuesPlugin#idenfity} call.
+   * identity to use in the [identify]{@link AppcuesPlugin#identify} call.
    * 
    * This will cause the plugin to begin tracking activity and checking 
    * for qualified content
-   * 
-   * @param {AnonymousOptions} options Specify extra properties for this call
    */
-  anonymous(options: AnonymousOptions): Promise<void>;
+  anonymous(): Promise<void>;
 
   /**
    * Clear out the current user in this session.
@@ -108,7 +106,7 @@ export interface InitializeOptions {
 
 export class AppcuesConfig {
   /**
-   * Determines wheter logging is enabled or disabled
+   * Determines whether logging is enabled or disabled
    */
   logging?: boolean;
   /**
@@ -127,9 +125,9 @@ export class AppcuesConfig {
    * and retried later, in the case of the device network connection being 
    * unavailable.
    * 
-   * Only the most request requests, up to this cound, are retained.
+   * Only the most request requests, up to this count, are retained.
    * 
-   * The default and maxmum value is 25
+   * The default and maximum value is 25
    */
   activityStorageMaxSize?: number;
   /**
@@ -177,13 +175,6 @@ export interface GroupOptions {
    * group user is being identified with
    */
    groupId?: string;
-  /**
-   * extra properties
-   */
-  properties?: object
-}
-
-export interface AnonymousOptions {
   /**
    * extra properties
    */

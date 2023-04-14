@@ -1,7 +1,7 @@
 import { WebPlugin } from '@capacitor/core';
 import { IdentifyOptions, ScreenOptions, ShowOptions } from '.';
 
-import type { AnonymousOptions, AppcuesPlugin, DidHandleURLOptions, DidHandleURLResponse, GroupOptions, InitializeOptions, TrackOptions, VersionResponse } from './definitions';
+import type { AppcuesPlugin, DidHandleURLOptions, DidHandleURLResponse, GroupOptions, InitializeOptions, TrackOptions, VersionResponse } from './definitions';
 
 export class AppcuesWeb extends WebPlugin implements AppcuesPlugin {
   async initialize(options: InitializeOptions): Promise<void> {
@@ -24,8 +24,8 @@ export class AppcuesWeb extends WebPlugin implements AppcuesPlugin {
     console.log(`Appcues.group(groupID: ${options.groupId}, options: ${options.properties})`);
   }
 
-  async anonymous(options: AnonymousOptions): Promise<void> {
-    console.log(`Appcues.anonymous(options: ${options.properties})`);
+  async anonymous(): Promise<void> {
+    console.log(`Appcues.anonymous()`);
   }
 
   async screen(options: ScreenOptions): Promise<void> {

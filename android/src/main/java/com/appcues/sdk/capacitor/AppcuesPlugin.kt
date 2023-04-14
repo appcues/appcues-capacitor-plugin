@@ -79,7 +79,7 @@ class AppcuesPlugin : Plugin() {
 
     @PluginMethod(returnType = PluginMethod.RETURN_NONE)
     fun anonymous(call: PluginCall) {
-        implementation.anonymous(call.getPropertiesMap())
+        implementation.anonymous()
         call.resolve()
     }
 
