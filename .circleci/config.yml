@@ -34,7 +34,7 @@ executors:
       HOMEBREW_NO_AUTO_UPDATE: 1
   android_compatible:
     machine: 
-      image: android:2022.04.1
+      image: android:2023.06.1
     resource_class: large
     working_directory: ~/project/example/android
 
