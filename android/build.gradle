@@ -52,15 +52,15 @@ repositories {
 
 
 dependencies {
-    implementation "com.appcues:appcues:2.1.2"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.3"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
+    implementation "com.appcues:appcues:2.1.4"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.2"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.2"
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':capacitor-android')
     implementation "androidx.appcompat:appcompat:$androidxAppCompatVersion"
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "androidx.test.ext:junit:$androidxJunitVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$androidxEspressoCoreVersion"
-    implementation "androidx.core:core-ktx:1.9.0"
+    implementation "androidx.core:core-ktx:1.10.1"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
