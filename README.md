@@ -13,7 +13,7 @@ This capacitor is a bridge between the native Appcues SDKs in an Ionic applicati
     - [Installation](#installation)
     - [One Time Setup](#one-time-setup)
       - [Initializing the SDK](#initializing-the-sdk)
-      - [Supporting Debugging and Experience Previewing](#supporting-debugging-and-experience-previewing)
+      - [Supporting Builder Preview and Screen Capture](#supporting-builder-preview-and-screen-capture)
     - [Identifying Users](#identifying-users)
     - [Tracking Screens and Events](#tracking-screens-and-events)
   - [📝 Documentation](#-documentation)
@@ -69,7 +69,7 @@ Initializing the SDK requires you to provide two values, an Appcues account ID, 
 
 #### Supporting Debugging and Experience Previewing
 
-Supporting debugging and experience previewing is not required for the Appcues Capacitor Plugin to function, but it is necessary for the optimal Appcues builder experience. Refer to the [URL Scheme Configuration Guide](https://github.com/appcues/appcues-capacitor-plugin/blob/main/docs/URLSchemeConfiguring.md) for details on how to configure.
+During installation, follow the steps outlined in [Configuring the Appcues URL Scheme](https://github.com/appcues/appcues-capacitor-plugin/blob/main/docs/URLSchemeConfiguring.md). This is necessary for the complete Appcues builder experience, supporting experience preview, screen capture and debugging.
 
 ### Identifying Users
 
