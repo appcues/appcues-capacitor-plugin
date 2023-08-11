@@ -67,7 +67,7 @@ Appcues.initialize({accountId: 'APPCUES_ACCOUNT_ID', applicationId: 'APPCUES_APP
 
 Initializing the SDK requires you to provide two values, an Appcues account ID, and an Appcues mobile application ID. These values can be obtained from your [Appcues settings](https://studio.appcues.com/settings/account). Refer to the help documentation on [Registering your mobile app in Studio](https://docs.appcues.com/article/848-registering-your-mobile-app-in-studio) for more information.
 
-#### Supporting Debugging and Experience Previewing
+#### Supporting Builder Preview and Screen Capture
 
 During installation, follow the steps outlined in [Configuring the Appcues URL Scheme](https://github.com/appcues/appcues-capacitor-plugin/blob/main/docs/URLSchemeConfiguring.md). This is necessary for the complete Appcues builder experience, supporting experience preview, screen capture and debugging.
 
