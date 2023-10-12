@@ -2,6 +2,13 @@
 
 To use custom fonts in Appcues Experiences that are rendering inside of Ionic applications, those fonts must be registered with the native iOS and Android projects for your app. Please follow the instructions in each section below to register the fonts.
 
+## Naming Font Files
+
+The file name for a font must match the PostScript name of the font for your flows to properly load the custom font on both Android and iOS. 
+This is because in native Android apps, fonts are referenced by their resource name which is the filename[^1], while in native iOS apps, fonts are referenced by their PostScript name[^2].
+
+On macOS, you can find the PostScript name of a font by opening it with the Font Book app and selecting the Font Info tab.
+
 ## iOS
 
 1. Open your Ionic application's iOS project workspace in Xcode - for example ./ios/App/App.xcworkspace
@@ -40,9 +47,11 @@ For more information, please refer to [iOS Reference Documentation](https://deve
 
 ![Font files are included in the Android app's resources](android-font-resource.png)
 
-
-
 For more information, please refer to [Android Reference Documentation](https://developer.android.com/develop/ui/views/text-and-emoji/fonts-in-xml)
 
+## Build and Test
 
-After the above steps are completed, create an Experience in the Appcues Mobile Builder that specifies a custom font, rebuild your application with these changes, and try it out in preview.
+After the above steps are completed, rebuild your application. Create an Experience in the Appcues Mobile Builder that specifies a custom font, and try it out by using either the builder preview or publishing.
+
+[^1]: "The resource name, which is either the filename excluding the extension..." https://developer.android.com/guide/topics/resources/providing-resources
+[^2]: "When retrieving the font with `custom(_:size:)`, match the name of the font with the font’s PostScript name." https://developer.apple.com/documentation/swiftui/applying-custom-fonts-to-text/#Apply-a-font-supporting-dynamic-sizing
