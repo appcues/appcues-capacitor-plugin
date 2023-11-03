@@ -5,33 +5,25 @@ import com.appcues.LoggingLevel
 import com.getcapacitor.PluginCall
 
 class AppcuesPluginConfig(call: PluginCall) {
-    private val jsObject = call.getObject("config")
-
-    private val loggingLevel: LoggingLevel = jsObject.getBool("logging").toLoggingLevel()
-
-    private val apiBasePath: String? = jsObject.getString("apiBasePath")
-
-    private val sessionTimeout: Int? = jsObject.getInteger("sessionTimeout")
-
-    private val activityStorageMaxSize: Int? = jsObject.getInteger("activityStorageMaxSize")
-
-    private val activityStorageMaxAge: Int? = jsObject.getInteger("activityStorageMaxAge")
+    private val config = call.getObject("config")
 
     fun applyAppcuesConfig(appcuesConfig: AppcuesConfig) {
-        loggingLevel.let { appcuesConfig.loggingLevel = it }
-        apiBasePath?.let { appcuesConfig.apiBasePath = it }
-        sessionTimeout?.let { appcuesConfig.sessionTimeout = it }
-        activityStorageMaxSize?.let { appcuesConfig.activityStorageMaxSize = it }
-        activityStorageMaxAge?.let { appcuesConfig.activityStorageMaxAge = it }
+        config?.let { config ->
+            config.getBool("logging")
+                ?.let { appcuesConfig.loggingLevel = if (it) LoggingLevel.DEBUG else LoggingLevel.NONE }
 
-        appcuesConfig.additionalAutoProperties = mapOf("_applicationFramework" to "capacitor")
-    }
+            config.getString("apiBasePath")
+                ?.let { appcuesConfig.apiBasePath = it }
 
-    private fun Boolean?.toLoggingLevel(): LoggingLevel {
-        return when (this) {
-            true -> LoggingLevel.DEBUG
-            false -> LoggingLevel.NONE
-            null -> LoggingLevel.NONE
+            config.getInteger("sessionTimeout")
+                ?.let { appcuesConfig.sessionTimeout = it }
+
+            config.getInteger("activityStorageMaxSize")
+                ?.let { appcuesConfig.activityStorageMaxSize = it }
+
+            config.getInteger("activityStorageMaxAge")
+                ?.let { appcuesConfig.activityStorageMaxAge = it }
         }
+        appcuesConfig.additionalAutoProperties = mapOf("_applicationFramework" to "capacitor")
     }
 }
