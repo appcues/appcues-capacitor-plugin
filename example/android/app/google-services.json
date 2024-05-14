@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1005008891562",
+    "project_id": "sample-ionic-cfb70",
+    "storage_bucket": "sample-ionic-cfb70.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1005008891562:android:3c2e84ed0bb6e99304aad3",
+        "android_client_info": {
+          "package_name": "com.appcues.examples.ionic"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "GOOGLE_SERVICES_KEY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
