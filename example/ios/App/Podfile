@@ -23,6 +23,10 @@ target 'App' do
   capacitor_pods
 end
 
+target 'AppcuesNotificationServiceExtension' do
+  use_frameworks!
+  pod 'AppcuesNotificationService', '4.0.0-alpha.2'
+end
 
 post_install do |installer|
   assertDeploymentTarget(installer)
