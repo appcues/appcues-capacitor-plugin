@@ -19,7 +19,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>14</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
@@ -52,7 +52,7 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>appcues-APPCUES_APPLICATION_ID</string>
+				<string>appcues-667bedcc-d5cc-40f0-9bb9-63849979779e</string>
 			</array>
 		</dict>
 	</array>
