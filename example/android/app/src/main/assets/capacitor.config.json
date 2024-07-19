@@ -2,5 +2,8 @@
 	"appId": "com.appcues.samples.ionic",
 	"appName": "appcues-ionic-app",
 	"webDir": "build",
-	"bundledWebRuntime": false
+	"bundledWebRuntime": false,
+	"ios": {
+		"scheme": "App"
+	}
 }
