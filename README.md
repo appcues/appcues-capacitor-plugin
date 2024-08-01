@@ -44,15 +44,27 @@ android {
 Due to the SDK usage of Jetpack Compose, it is required to either:
 
 1. apply `kotlin-android` plugin in app's build.gradle file.
-	```
-	plugins {  
-	  id 'com.android.application' 
-	  id 'kotlin-android' 
-	}
-	```
+```
+plugins {  
+  id 'com.android.application' 
+  id 'kotlin-android' 
+}
+```
 2. **OR** Update Android Gradle Plugin 8.4.0+
 
 > [Related Google issue](https://issuetracker.google.com/issues/328687152) regarding usage of the Jetpack Compose dependency versions 1.6+
+
+---
+If your project fails to build with similar error:
+```
+(25, 39): Class 'kotlin.Unit' was compiled with an incompatible version of Kotlin. 
+The binary version of its metadata is 1.9.0, expected version is 1.7.1.
+```
+
+Make sure to set the appropriate kotlin_version on your project build.gradle file
+```
+ext.kotlin_version = ‘1.7.20’
+```
 
 #### iOS
 Your application must target iOS 11+ to install the SDK, and iOS 13+ to render Appcues content. Update the iOS project xcodeproj to set the deployment target, if needed. In the application's `Podfile`, include at least this minimum version.
