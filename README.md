@@ -29,7 +29,7 @@ This capacitor is a bridge between the native Appcues SDKs in an Ionic applicati
 ### Prerequisites
 
 #### Android
-Your application's `build.gradle` must have a `compileSdkVersion` of 34+ and `minSdkVersion` of 21+
+Your application's `build.gradle` must have a `compileSdkVersion` of 34+ and `minSdkVersion` of 21+. Your project should use the Android Gradle Plugin (AGP) version 8 or above.
 
 ```
 android {
