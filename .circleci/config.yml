@@ -106,11 +106,14 @@ jobs:
           paths: example/node_modules
       - run:
           name: Build example
+          # setting CAPACITOR_COCOAPODS_PATH=pod makes it skip pod install.
+          # This is necessary because cocoapods isn't installed at this point.
+          # If building for iOS, it is installed and then pod install is run then.
           command: |
             cd ./example
             ./scripts/replace-placeholders.sh ${EX_APPCUES_ACCOUNT_ID} ${EX_APPCUES_APPLICATION_ID}
             npm run build
-            npx cap sync
+            CAPACITOR_COCOAPODS_PATH=pod npx cap sync
       - persist_to_workspace:
           root: .
           paths: .
