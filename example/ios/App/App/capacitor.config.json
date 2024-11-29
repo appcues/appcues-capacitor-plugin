@@ -5,5 +5,13 @@
 	"bundledWebRuntime": false,
 	"ios": {
 		"scheme": "App"
-	}
+	},
+	"packageClassList": [
+		"AppcuesPlugin",
+		"ActionSheetPlugin",
+		"AppPlugin",
+		"HapticsPlugin",
+		"KeyboardPlugin",
+		"StatusBarPlugin"
+	]
 }

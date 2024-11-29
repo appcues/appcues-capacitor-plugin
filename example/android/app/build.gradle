@@ -3,7 +3,7 @@ apply plugin: 'com.google.gms.google-services'
 
 android {
     namespace "com.appcues.examples.ionic"
-    compileSdkVersion rootProject.ext.compileSdkVersion
+    compileSdk rootProject.ext.compileSdkVersion
     defaultConfig {
         applicationId "com.appcues.examples.ionic"
         minSdkVersion rootProject.ext.minSdkVersion
