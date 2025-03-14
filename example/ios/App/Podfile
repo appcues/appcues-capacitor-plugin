@@ -25,7 +25,7 @@ end
 
 target 'AppcuesNotificationServiceExtension' do
   use_frameworks!
-  pod 'AppcuesNotificationService', '4.3.3'
+  pod 'AppcuesNotificationService', '4.3.6'
 end
 
 post_install do |installer|
