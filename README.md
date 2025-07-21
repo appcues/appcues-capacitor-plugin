@@ -20,6 +20,7 @@ This capacitor is a bridge between the native Appcues SDKs in an Ionic applicati
       - [Enabling Push Notifications](#enabling-push-notifications)
     - [Identifying Users](#identifying-users)
     - [Tracking Screens and Events](#tracking-screens-and-events)
+    - [Anchored Tooltips](#anchored-tooltips)
   - [📝 Documentation](#-documentation)
   - [🎬 Examples](#-examples)
   - [👷 Contributing](#-contributing)
@@ -142,6 +143,10 @@ Appcues.screen({title: "Contact List"})
 // Track screen with property
 Appcues.screen({title: "Contact List", properties: { reference: "abc" }})
 ```
+
+### Anchored Tooltips
+
+Anchored tooltips use element targeting to point directly at specific views in your application. For more information about how to configure your application's views for element targeting, refer to the [Anchored Tooltips Guide](https://github.com/appcues/appcues-capacitor-plugin/blob/main/docs/AnchoredTooltips.md).
 
 ## 📝 Documentation
 
