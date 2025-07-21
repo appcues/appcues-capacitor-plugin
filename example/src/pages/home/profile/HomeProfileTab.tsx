@@ -59,7 +59,7 @@ const HomeProfileTab: React.FC = () => {
               </IonItem>
             </IonList>
 
-            <IonButton onClick={onSave} color='primary' expand='block'>SAVE</IonButton>
+            <IonButton onClick={onSave} color='primary' expand='block' data-appcues-id="btnSaveProfile">SAVE</IonButton>
           </IonContent>
         </IonPage>
   );

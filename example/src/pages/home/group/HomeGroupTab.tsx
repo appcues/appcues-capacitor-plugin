@@ -25,7 +25,7 @@ const HomeGroupTab: React.FC = () => {
           </IonItem>
         </IonList>
 
-        <IonButton onClick={onSaveGroup} color='primary' expand='block'>SAVE</IonButton>
+        <IonButton onClick={onSaveGroup} color='primary' expand='block' data-appcues-id="btnSaveGroup">SAVE</IonButton>
       </IonContent>
     </IonPage>
   );
