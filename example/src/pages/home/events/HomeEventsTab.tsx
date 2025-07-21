@@ -12,7 +12,7 @@ const HomeEventsTab: React.FC = () => {
       <IonHeader>
         <IonToolbar>
         <IonButtons slot="end">
-           <IonButton onClick={openDebugger}>DEBUG</IonButton>
+           <IonButton id="debug-button" onClick={openDebugger}>DEBUG</IonButton>
         </IonButtons>
           <IonTitle>Trigger Events</IonTitle>
         </IonToolbar>
@@ -23,8 +23,8 @@ const HomeEventsTab: React.FC = () => {
             <IonTitle size="large">Trigger Events</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <IonButton expand="block" onClick={() => Appcues.track({name: "event1"})} >Trigger Event 1</IonButton>
-        <IonButton expand="block" onClick={() => Appcues.track({name: "event2"})} >Trigger Event 2</IonButton>
+        <IonButton expand="block" data-appcues-id="btnEvent1" onClick={() => Appcues.track({name: "event1"})} >Trigger Event 1</IonButton>
+        <IonButton expand="block" data-appcues-id="btnEvent2" onClick={() => Appcues.track({name: "event2"})} >Trigger Event 2</IonButton>
       </IonContent>
     </IonPage>
   );

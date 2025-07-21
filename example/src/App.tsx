@@ -42,7 +42,7 @@ export default function App() {
       <IonReactRouter>    
       <AppUrlListener></AppUrlListener>    
         {
-          initComplete &&  <IonRouterOutlet id="main">
+          initComplete &&  <IonRouterOutlet>
             <Route path="/signIn" component={SignInPage} />
             <Route path="/home" component={HomePage} />
             <Redirect exact from="/" to="/signIn" />
