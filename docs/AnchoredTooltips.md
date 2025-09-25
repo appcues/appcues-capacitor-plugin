@@ -1,7 +1,7 @@
 # Configuring Views for Anchored Tooltips
 
 > [!IMPORTANT]
-> Anchored tooltips requre version 5 of the Appuces Capacitor Plugin.
+> Anchored tooltips require version 5 of the Appuces Capacitor Plugin.
  
 The Appcues Capacitor Plugin supports anchored tooltips targeting any node in your application's layout.
 
