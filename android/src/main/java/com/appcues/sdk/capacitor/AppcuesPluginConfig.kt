@@ -15,6 +15,9 @@ class AppcuesPluginConfig(call: PluginCall) {
             config.getString("apiBasePath")
                 ?.let { appcuesConfig.apiBasePath = it }
 
+            config.getString("settingsHost")
+                ?.let { appcuesConfig.apiSettingsPath = it }
+
             config.getInteger("sessionTimeout")
                 ?.let { appcuesConfig.sessionTimeout = it }
 
