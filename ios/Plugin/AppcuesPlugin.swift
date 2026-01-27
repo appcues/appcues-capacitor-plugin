@@ -28,6 +28,10 @@ public class AppcuesPlugin: CAPPlugin {
                 config.apiHost(url)
             }
 
+            if let settingsHost = configParams["settingsHost"] as? String, let url = URL(string: settingsHost) {
+                config.settingsHost(url)
+            }
+
             if let sessionTimeout = configParams["sessionTimeout"] as? Int {
                 config.sessionTimeout(UInt(sessionTimeout))
             }

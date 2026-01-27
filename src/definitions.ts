@@ -114,6 +114,10 @@ export class AppcuesConfig {
    */
   apiBasePath?: string;
   /**
+   * The settings host to be used for Appcues settings requests
+   */
+  settingsHost?: string;
+  /**
    * The timeout value, in seconds, used to determine if a new session is
    * started upon the application returning to the foreground.
    * 
