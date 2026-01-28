@@ -16,6 +16,8 @@ This capacitor is a bridge between the native Appcues SDKs in an Ionic applicati
     - [Installation](#installation)
     - [One Time Setup](#one-time-setup)
       - [Initializing the SDK](#initializing-the-sdk)
+      - [Configuring Hosting Environment](#configuring-hosting-environment)
+        - [EU Hosting Environment Configuration](#eu-hosting-environment-configuration)
       - [Supporting Builder Preview and Screen Capture](#supporting-builder-preview-and-screen-capture)
       - [Enabling Push Notifications](#enabling-push-notifications)
     - [Identifying Users](#identifying-users)
@@ -31,6 +33,7 @@ This capacitor is a bridge between the native Appcues SDKs in an Ionic applicati
 ### Prerequisites
 
 #### Android
+
 Your application's `build.gradle` must have a `compileSdkVersion` of 35+ and `minSdkVersion` of 21+. Your project should use the Android Gradle Plugin (AGP) version 8.8+.
 
 ```
@@ -43,16 +46,19 @@ android {
 }
 ```
 
-Due to the SDK usage of Jetpack Compose, it is required to  apply `kotlin-android` plugin in app's build.gradle file.
+Due to the SDK usage of Jetpack Compose, it is required to apply `kotlin-android` plugin in app's build.gradle file.
+
 ```
-plugins {  
-  id 'com.android.application' 
-  id 'kotlin-android' 
+plugins {
+  id 'com.android.application'
+  id 'kotlin-android'
 }
 ```
 
 #### iOS
+
 Your application must target iOS 11+ to install the SDK, and iOS 13+ to render Appcues content. Update the iOS project xcodeproj to set the deployment target, if needed. In the application's `Podfile`, include at least this minimum version.
+
 ```rb
 # Podfile
 platform :ios, '11.0'
@@ -61,6 +67,7 @@ platform :ios, '11.0'
 ### Installation
 
 In your app's root directory, run:
+
 ```sh
 npm install @appcues/capacitor
 
@@ -78,10 +85,30 @@ An instance of the Appcues SDK should be initialized when your app launches.
 ```js
 import { Appcues } from '@appcues/capacitor';
 
-Appcues.initialize({accountId: 'APPCUES_ACCOUNT_ID', applicationId: 'APPCUES_APPLICATION_ID'})
+Appcues.initialize({
+  accountId: 'APPCUES_ACCOUNT_ID',
+  applicationId: 'APPCUES_APPLICATION_ID',
+});
 ```
 
 Initializing the SDK requires you to provide two values, an Appcues account ID, and an Appcues mobile application ID. These values can be obtained from your [Appcues settings](https://studio.appcues.com/settings/account). Refer to the help documentation on [Registering your mobile app in Studio](https://docs.appcues.com/article/848-registering-your-mobile-app-in-studio) for more information.
+
+#### Configuring Hosting Environment
+
+By default, the Appcues SDK will send data to the United States (US) hosting environment, and no additional configuration is required. To specify a different hosting environment, pass a config with the `apiBasePath` and `settingsHost` options during initialization.
+
+##### EU Hosting Environment Configuration
+
+```js
+Appcues.initialize({
+  accountId: 'APPCUES_ACCOUNT_ID',
+  applicationId: 'APPCUES_APPLICATION_ID',
+  config: {
+    apiBasePath: 'https://api.eu.appcues.net',
+    settingsHost: 'https://fast.eu.appcues.com',
+  },
+});
+```
 
 #### Supporting Builder Preview and Screen Capture
 
@@ -97,16 +124,16 @@ In order to target content to the right users at the right time, you need to ide
 
 ```js
 // Identify a user
-Appcues.identify({userId: 'my-user-id'})
+Appcues.identify({ userId: 'my-user-id' });
 // Identify a user with property
-Appcues.identify({ userId: 'my-user-id', properties: { company: "Appcues" }})
+Appcues.identify({ userId: 'my-user-id', properties: { company: 'Appcues' } });
 ```
 
 After identifying a user, you can optionally associate that user with group.
 
 ```js
 // Associate a user with a group, optionally including group properties
-Appcues.group({ groupId: 'group-id', properties: { plan: "standard" }})
+Appcues.group({ groupId: 'group-id', properties: { plan: 'standard' } });
 ```
 
 To ensure the most accurate content targeting based upon group information, it's recommended to supply the group information immediately after a new user is identified.
@@ -117,14 +144,14 @@ Events are the “actions” your users take in your application, which can be a
 
 ```js
 // Track event
-Appcues.track({name: "Sent Message"})
+Appcues.track({ name: 'Sent Message' });
 // Track event with property
-Appcues.track({name: "Deleted Contact", properties: { id: 123 }})
+Appcues.track({ name: 'Deleted Contact', properties: { id: 123 } });
 
 // Track screen
-Appcues.screen({title: "Contact List"})   
+Appcues.screen({ title: 'Contact List' });
 // Track screen with property
-Appcues.screen({title: "Contact List", properties: { reference: "abc" }})
+Appcues.screen({ title: 'Contact List', properties: { reference: 'abc' } });
 ```
 
 ### Anchored Tooltips
