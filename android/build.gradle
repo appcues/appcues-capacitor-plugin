@@ -45,9 +45,16 @@ android {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
-    kotlinOptions {
+}
+
+// AGP 8 / explicit KGP: pin jvmTarget to match compileOptions (17).
+// AGP 9 built-in Kotlin: android.kotlinOptions does not exist; jvmTarget
+// follows compileOptions.targetCompatibility (17).
+try {
+    android.kotlinOptions {
         jvmTarget = '17'
     }
+} catch (MissingMethodException ignored) {
 }
 
 repositories {
