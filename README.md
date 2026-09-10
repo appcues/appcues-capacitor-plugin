@@ -46,7 +46,7 @@ android {
 }
 ```
 
-Due to the SDK usage of Jetpack Compose, AGP 8 apps must apply the `kotlin-android` plugin in the app `build.gradle`. AGP 9+ enables built-in Kotlin and should not apply it.
+Due to the SDK usage of Jetpack Compose, AGP 8 apps must apply the `kotlin-android` plugin in the app `build.gradle`. AGP 9+ enables built-in Kotlin by default and should not apply it.
 
 ```
 plugins {
