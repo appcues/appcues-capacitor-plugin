@@ -14,7 +14,7 @@
         tools:targetApi="n">
 
         <activity
-            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode|navigation"
             android:name=".MainActivity"
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBarLaunch"
