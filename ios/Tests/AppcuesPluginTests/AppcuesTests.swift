@@ -1,5 +1,5 @@
 import XCTest
-@testable import Plugin
+@testable import AppcuesPlugin
 
 class AppcuesTests: XCTestCase {
     override func setUp() {
