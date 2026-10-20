@@ -7,7 +7,22 @@ import AppcuesKit
  * here: https://capacitorjs.com/docs/plugins/ios
  */
 @objc(AppcuesPlugin)
-public class AppcuesPlugin: CAPPlugin {
+public class AppcuesPlugin: CAPPlugin, CAPBridgedPlugin {
+    public let identifier = "AppcuesPlugin"
+    public let jsName = "Appcues"
+    public let pluginMethods: [CAPPluginMethod] = [
+        CAPPluginMethod(name: "initialize", returnType: CAPPluginReturnNone),
+        CAPPluginMethod(name: "version", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "identify", returnType: CAPPluginReturnNone),
+        CAPPluginMethod(name: "group", returnType: CAPPluginReturnNone),
+        CAPPluginMethod(name: "anonymous", returnType: CAPPluginReturnNone),
+        CAPPluginMethod(name: "screen", returnType: CAPPluginReturnNone),
+        CAPPluginMethod(name: "track", returnType: CAPPluginReturnNone),
+        CAPPluginMethod(name: "show", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "debug", returnType: CAPPluginReturnNone),
+        CAPPluginMethod(name: "reset", returnType: CAPPluginReturnNone),
+        CAPPluginMethod(name: "didHandleURL", returnType: CAPPluginReturnPromise),
+    ]
     
     private var implementation: Appcues?
                
