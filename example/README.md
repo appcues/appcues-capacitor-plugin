@@ -20,7 +20,7 @@ npm install
 Appcues calls are printed with `console.log`.
 
 ```sh
-ionic serve
+npm run dev
 ```
 
 ### iOS
