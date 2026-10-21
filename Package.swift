@@ -3,7 +3,7 @@ import PackageDescription
 
 let package = Package(
     name: "AppcuesCapacitor",
-    platforms: [.iOS(.v14)],
+    platforms: [.iOS(.v15)],
     products: [
         .library(
             name: "AppcuesCapacitor",
@@ -11,7 +11,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/appcues/appcues-ios-sdk", from: "5.0.0"),
-        .package(url: "https://github.com/ionic-team/capacitor-swift-pm.git", from: "7.0.0")
+        .package(url: "https://github.com/ionic-team/capacitor-swift-pm.git", from: "8.0.0")
     ],
     targets: [
         .target(
