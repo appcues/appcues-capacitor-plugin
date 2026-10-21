@@ -1,25 +1,55 @@
 import XCTest
+import Capacitor
 @testable import AppcuesPlugin
 
 class AppcuesTests: XCTestCase {
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testInitializeUsesConfig() throws {
+        let plugin = AppcuesPlugin()
+        let expectation = expectation(description: "initialize resolved")
+
+        let call = try XCTUnwrap(CAPPluginCall(
+            callbackId: "test-initialize",
+            methodName: "initialize",
+            options: [
+                "accountId": "00000",
+                "applicationId": "00000000-0000-0000-0000-000000000000"
+            ],
+            success: { _, _ in
+                expectation.fulfill()
+            },
+            error: { error in
+                XCTFail(error?.message ?? "plugin call failed")
+                expectation.fulfill()
+            }
+        ))
+
+        plugin.initialize(call)
+
+        waitForExpectations(timeout: 2)
     }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
+    func testVersion() throws {
+        let plugin = AppcuesPlugin()
+        let expectation = expectation(description: "version resolved")
+        var resolvedVersion: String?
 
-    func testEcho() {
-        // This is an example of a functional test case for a plugin.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let call = try XCTUnwrap(CAPPluginCall(
+            callbackId: "test-version",
+            methodName: "version",
+            options: [:],
+            success: { result, _ in
+                resolvedVersion = result?.data?["version"] as? String
+                expectation.fulfill()
+            },
+            error: { error in
+                XCTFail(error?.message ?? "plugin call failed")
+                expectation.fulfill()
+            }
+        ))
 
-        let implementation = Appcues()
-        let value = "Hello, World!"
-        let result = implementation.echo(value)
+        plugin.version(call)
 
-        XCTAssertEqual(value, result)
+        waitForExpectations(timeout: 1)
+        XCTAssertNotNil(resolvedVersion)
     }
 }
