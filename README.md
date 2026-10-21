@@ -57,12 +57,7 @@ plugins {
 
 #### iOS
 
-Your application must target iOS 11+ to install the SDK, and iOS 13+ to render Appcues content. Update the iOS project xcodeproj to set the deployment target, if needed. In the application's `Podfile`, include at least this minimum version.
-
-```rb
-# Podfile
-platform :ios, '11.0'
-```
+Your application must target iOS 14+. Update the iOS project xcodeproj to set the deployment target, if needed.
 
 ### Installation
 
