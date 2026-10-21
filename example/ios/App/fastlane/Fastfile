@@ -8,7 +8,6 @@ platform :ios do
 
   desc "Sanity check to make sure the example app compiles"
   lane :compile_example do
-    cocoapods
     build_app(
       skip_archive: true,
       skip_codesigning: true)
@@ -41,7 +40,6 @@ platform :ios do
     increment_build_number(
       build_number: current_build + 1)
 
-    cocoapods
     sh("./replace-placeholders.sh", ENV["EX_APPCUES_ACCOUNT_ID"], ENV["EX_APPCUES_APPLICATION_ID"])
 
     sync_code_signing(
