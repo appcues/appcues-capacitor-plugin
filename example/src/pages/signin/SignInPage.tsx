@@ -1,7 +1,7 @@
-import { IonButton, IonButtons, IonContent, IonFooter, IonHeader, IonInput, IonItem, IonLabel, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonButtons, IonContent, IonFooter, IonHeader, IonInput, IonItem, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import { Appcues, VersionResponse } from '@appcues/capacitor';
 import { useEffect, useState } from 'react';
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import './SignInPage.css';
 
 export class GlobalVars {
@@ -15,7 +15,7 @@ const SignInPage: React.FC = () => {
     setVersion(response.version)
   })}, []);
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   
   const onSignIn = () => {
@@ -34,7 +34,7 @@ const SignInPage: React.FC = () => {
   };
   
   const navigateHome = () => {
-    history.push("/home")
+    navigate("/home")
   }
 
   return (
@@ -52,8 +52,7 @@ const SignInPage: React.FC = () => {
       <IonContent className="ion-padding" fullscreen>
         <IonList>
           <IonItem>
-            <IonLabel position="floating">User ID</IonLabel>
-            <IonInput type="text" value={GlobalVars.userId} onIonChange={(value) => GlobalVars.userId = value.detail.value!}></IonInput>
+            <IonInput label="User ID" labelPlacement="floating" type="text" value={GlobalVars.userId} onIonInput={(event) => GlobalVars.userId = event.detail.value ?? ""}></IonInput>
           </IonItem>
         </IonList>
 

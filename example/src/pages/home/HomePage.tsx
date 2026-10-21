@@ -1,5 +1,5 @@
-import { IonTabs, IonRouterOutlet, IonTabBar, IonTabButton, IonIcon, IonLabel, IonPage } from '@ionic/react';
-import { Redirect, Route, useLocation } from 'react-router';
+import { IonTabs, IonRouterOutlet, IonTabBar, IonTabButton, IonIcon, IonLabel } from '@ionic/react';
+import { Navigate, Route, useLocation } from 'react-router-dom';
 import HomeEventsTab from './events/HomeEventsTab';
 import HomeGroupTab from './group/HomeGroupTab';
 import HomeProfileTab from './profile/HomeProfileTab';
@@ -38,13 +38,12 @@ const HomePage: React.FC = () => {
     }, [tabPath]);
 
   return (
-    <IonPage>  
       <IonTabs>
         <IonRouterOutlet>
-          <Route path={path + eventsTabPath} component={HomeEventsTab} />
-          <Route path={path + profileTabPath} component={HomeProfileTab} />
-          <Route path={path + groupTabPath} component={HomeGroupTab} />
-          <Redirect exact from={path} to={path + eventsTabPath} />
+          <Route path="events" element={<HomeEventsTab />} />
+          <Route path="profile" element={<HomeProfileTab />} />
+          <Route path="group" element={<HomeGroupTab />} />
+          <Route index element={<Navigate to="events" replace />} />
         </IonRouterOutlet>
 
         <IonTabBar slot="bottom">
@@ -62,7 +61,6 @@ const HomePage: React.FC = () => {
           </IonTabButton>
         </IonTabBar>
       </IonTabs>
-    </IonPage>
   );
 };
 

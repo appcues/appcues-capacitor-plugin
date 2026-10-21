@@ -1,4 +1,4 @@
-import { IonButton, IonContent, IonHeader, IonInput, IonItem, IonLabel, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonContent, IonHeader, IonInput, IonItem, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import { Appcues } from '@appcues/capacitor';
 import './HomeGroupTab.css';
 
@@ -20,8 +20,7 @@ const HomeGroupTab: React.FC = () => {
       <IonContent className="ion-padding" fullscreen>
         <IonList>
           <IonItem>
-            <IonLabel position="floating">Group</IonLabel>
-            <IonInput type="text" onIonChange={(value) => group = value.detail.value!}></IonInput>
+            <IonInput label="Group" labelPlacement="floating" type="text" onIonInput={(event) => group = event.detail.value ?? ""}></IonInput>
           </IonItem>
         </IonList>
 
