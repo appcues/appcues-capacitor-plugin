@@ -8,7 +8,6 @@
 	},
 	"packageClassList": [
 		"AppcuesPlugin",
-		"Appcues",
 		"ActionSheetPlugin",
 		"AppPlugin",
 		"HapticsPlugin",
