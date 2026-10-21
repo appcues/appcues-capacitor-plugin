@@ -1,6 +1,6 @@
-import { IonButton, IonButtons, IonContent, IonHeader, IonInput, IonItem, IonLabel, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonButtons, IonContent, IonHeader, IonInput, IonItem, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import { Appcues } from '@appcues/capacitor';
-import { useHistory } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import { GlobalVars } from '../../signin/SignInPage';
 import './HomeProfileTab.css';
 
@@ -13,12 +13,12 @@ const HomeProfileTab: React.FC = () => {
   let givenName = ""
   let familyName = ""
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const onSignOut = () => {
     Appcues.reset()
     GlobalVars.userId = ""
-    history.push("/signIn")
+    navigate("/signIn")
   }
 
   const onSave = () => {
@@ -49,13 +49,11 @@ const HomeProfileTab: React.FC = () => {
           <IonContent className="ion-padding" fullscreen>
             <IonList>
               <IonItem>
-                <IonLabel position="floating">Given Name</IonLabel>
-                <IonInput type="text" onIonChange={(value) => givenName = value.detail.value!} />
+                <IonInput label="Given Name" labelPlacement="floating" type="text" onIonInput={(event) => givenName = event.detail.value ?? ""} />
               </IonItem>
 
               <IonItem>
-                <IonLabel position="floating">Family Name</IonLabel>
-                <IonInput type="text" onIonChange={(value) => familyName = value.detail.value!} />
+                <IonInput label="Family Name" labelPlacement="floating" type="text" onIonInput={(event) => familyName = event.detail.value ?? ""} />
               </IonItem>
             </IonList>
 

@@ -1,7 +1,7 @@
-import { IonApp, IonRouterOutlet } from '@ionic/react';
+import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { useEffect, useState } from 'react';
-import { Redirect, Route } from 'react-router-dom';
+import { Navigate, Route } from 'react-router-dom';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -19,6 +19,9 @@ import '@ionic/react/css/padding.css';
 import '@ionic/react/css/text-alignment.css';
 import '@ionic/react/css/text-transformation.css';
 
+/* Ionic dark mode, applied when the system theme is dark */
+import '@ionic/react/css/palettes/dark.system.css';
+
 /* Theme variables */
 import './theme/variables.css';
 
@@ -26,6 +29,8 @@ import { Appcues } from '@appcues/capacitor';
 import SignInPage from './pages/signin/SignInPage';
 import HomePage from './pages/home/HomePage';
 import AppUrlListener from './pages/AppUrlListener';
+
+setupIonicReact();
 
 export default function App() {
   // Ensures that first _real_ render of the app doesn't occur until
@@ -43,9 +48,9 @@ export default function App() {
       <AppUrlListener></AppUrlListener>    
         {
           initComplete &&  <IonRouterOutlet>
-            <Route path="/signIn" component={SignInPage} />
-            <Route path="/home" component={HomePage} />
-            <Redirect exact from="/" to="/signIn" />
+            <Route path="/signIn" element={<SignInPage />} />
+            <Route path="/home/*" element={<HomePage />} />
+            <Route path="/" element={<Navigate to="/signIn" replace />} />
           </IonRouterOutlet>
         }
       </IonReactRouter>
