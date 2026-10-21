@@ -32,16 +32,18 @@ This capacitor is a bridge between the native Appcues SDKs in an Ionic applicati
 
 ### Prerequisites
 
+The latest package version requires Capacitor 8. Use `@appcues/capacitor@5.0.6` for Capacitor 7.
+
 #### Android
 
-Your application's `build.gradle` must have a `compileSdkVersion` of 35+ and `minSdkVersion` of 21+. Your project should use the Android Gradle Plugin (AGP) version 8.8+.
+Your application's `build.gradle` must have a `compileSdkVersion` of 36+ and `minSdkVersion` of 24+. Your project should use the Android Gradle Plugin (AGP) version 8.13+.
 
 ```
 android {
-    compileSdkVersion 35
+    compileSdkVersion 36
 
     defaultConfig {
-        minSdkVersion 21
+        minSdkVersion 24
     }
 }
 ```
@@ -57,7 +59,7 @@ plugins {
 
 #### iOS
 
-Your application must target iOS 14+. Update the iOS project xcodeproj to set the deployment target, if needed.
+Your application must target iOS 15+. Update the iOS project xcodeproj to set the deployment target, if needed.
 
 ### Installation
 
