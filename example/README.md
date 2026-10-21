@@ -31,7 +31,7 @@ Page views are tracked and a button can display an Experience.
 npm run build
 npx cap sync
 
-open ./ios/App/App.xcworkspace 
+npx cap open ios
 ```
 
 ### Android
@@ -41,10 +41,9 @@ Page views are tracked and a button can display an Experience.
 ```
 npm run build
 npx cap sync
+
+npx cap open android
 ```
-
-open the `android` project subdirectory in Android Studio.
-
 
 This example app requires you to fill in an Appcues Account ID and an Appcues Application ID in `App.tsx`. You can enter your own values found in [Appcues Studio](https://studio.appcues.com), or use the following test values:
 ```
